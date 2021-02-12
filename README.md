@@ -35,7 +35,7 @@ Password ADMIN
 
 ### Login page
 
-![image login](https://raw.githubusercontent.com/NilavPatel/Ng-Prime/master/src/assets/images/loginPage.png)
+![image login](https://https://github.com/keane-kane/angular-pfr-primeng/src/assets/images/loginPage.png)
 
 ### Details page
 
