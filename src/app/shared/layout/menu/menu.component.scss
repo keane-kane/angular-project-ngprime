@@ -1,0 +1,46 @@
+$font-primary: "Poppins", Arial, sans-serif;
+$primary: #3445b4;
+$secondary: #44bef1;
+$white:#fff !default;
+
+h1 {
+  margin-left: 15px;
+  font-weight: 700;
+  font-size: 30px;
+}
+.logo {
+  color: $white !important;
+  span {
+    font-size: 14px;
+
+    display: block;
+  }
+}
+.fa-fw {
+  font-size: 18px;
+}
+.label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+
+ul {
+  li {
+    font-size: 19px;
+    > ul {
+      margin-left: 18px;
+    }
+    a {
+      display: block;
+      color: $white;
+      margin-left: 10px !important;
+      padding: 10px  0;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+      i {
+        color: $white;
+      }
+    }
+  }
+}

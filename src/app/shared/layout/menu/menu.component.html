@@ -1,0 +1,24 @@
+<p-sidebar [visible]="visible" position="left" [showCloseIcon]="false" styleClass="np-menubar" [modal]="false">
+    <ul class="np-menu">
+        <h1>
+            <a href="index.html" class="logo">ODC <span>SONATEL ACADEMY</span></a>
+          </h1>
+        <ng-template #recursiveList let-list>
+            <li *ngFor="let menu of list">
+                <a (click)="onMenuClick(menu)" [ngClass]="{'active': selectedItem == menu.Label}">
+                    <i class="fa fa-fw " [ngClass]="menu.Icon"></i>
+                    <span class="label">
+                        {{menu.Label}}
+                    </span>
+                    <i class="fa right" *ngIf="menu.Childs != null"
+                        [ngClass]="{'fa-angle-down': !menu.IsChildVisible,'fa-angle-up': menu.IsChildVisible }"></i>
+                </a>
+                <ul *ngIf="menu.Childs && menu.Childs.length > 0 && menu.IsChildVisible" class="np-sub-menu">
+                    <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: menu.Childs }">
+                    </ng-container>
+                </ul>
+            </li>
+        </ng-template>
+        <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: items }"></ng-container>
+    </ul>
+</p-sidebar>

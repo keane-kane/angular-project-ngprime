@@ -1,0 +1,48 @@
+<div class="ng-header">
+    <div class="ng-header-left left">
+        <div class="toggle-menu-button left">
+            <a class="icon" (click)="toggleMenu()"><i class="fa fa-bars"></i></a>
+        </div>
+        <div class="logo right">
+            <img src="assets/images/bgi.png" class="logo-large">
+            <img src="assets/images/bgi.png" class="logo-small">
+        </div>
+    </div>
+    <div class="ng-header-left ">
+    </div>
+    <div class="ng-header-right right">
+        <div class="ng-header-right-item right">
+            <a class="icon" (click)="logout()"><i class="fa fa-sign-out-alt"></i></a>
+        </div>
+        <div class="ng-header-right-item right" (click)="showNotificationSidebar()">
+            <a class="icon"><i class="fa fa-bell"></i><span class="badge">5</span></a>
+        </div>
+        <div class="ng-header-right-item right" (click)="userdetails.toggle($event)">
+            <a class="icon"><span [innerHtml]="user.emailId" class="user-name"></span><i class="fa fa-user"></i></a>
+        </div>
+        <div class="ng-header-center-item  center">
+            <div class="p-col-6">
+                <div class="ui-inputgroup">
+                    <p-dropdown inputId="cohort" class="cohort" [options]="cohort" [(ngModel)]="selectedCohort" placeholder="Select cohort" optionLabel="name"></p-dropdown>
+                </div>   
+            </div>
+          
+        </div>
+    </div>
+</div>
+
+<!-- user detials overlay panel -->
+<p-overlayPanel #userdetails>
+    <div><b>User Name: </b><i [innerHtml]="user.username"></i></div>
+    <div><b>Email Id: </b><i [innerHtml]="user.emailId"></i></div>
+    <div><b>Birthdate: </b><i [innerHtml]="user.birthDate | date:'dd/MM/yyyy'"></i></div>
+</p-overlayPanel>
+
+<!-- notifications sidebar -->
+<p-sidebar [(visible)]="displayNotifications" position="right">
+    <div *ngFor="let notification of notifications; let i=index" class="notification-message">
+        <div><b>Message: </b><i [innerHtml]="notification.message"></i></div>
+        <div><i>Created On: </i><i [innerHtml]="notification.createdOn | date:'dd/MM/yyyy'"></i></div>
+    </div>
+</p-sidebar>
+

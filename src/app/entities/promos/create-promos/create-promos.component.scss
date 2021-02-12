@@ -1,0 +1,175 @@
+*{
+  box-sizing: border-box;
+}
+.reverse{
+  background-image: url("/assets/images/banner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+    height: auto;
+    margin: auto;
+  color: aliceblue;
+  width: 45em;
+}
+h3{
+  text-align: center;
+}
+.forms-sample{
+  background-color: #0c0f0f;
+
+  width: 100%;
+  padding: 5px ;
+
+}
+select{
+  background-color: rgb(146, 150, 150);
+  border:none;
+}
+.obligatoire{
+  color:rgb(238, 93, 93);
+  font-weight: bold;
+  text-align: right;
+  margin-bottom: 6px;
+}
+.label{
+  padding-right: 6px;
+  border-right: #fff solid 2px;
+
+}
+.form-group{
+  background-color: black;
+  padding: 5px;
+  margin-bottom: 3px;
+
+
+}
+.arrow{
+  float: right;
+}
+#collapse1 {
+  justify-content: flex-end;
+  flex-basis: auto;
+  margin: auto !important;
+}
+
+#collapse1 div{
+  border: #fff solid 2Px;
+  margin: 0 1px 1px 0px;
+}
+input, textarea{
+  background-color: black;
+  color: rgb(240, 230, 230);
+  border: none;
+}
+i{
+  color: rgb(238, 93, 93);
+}
+
+.uploadfilecontainer {
+    background-image: url("/assets/images/images.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100px;
+    background-position: center;
+    height: 200px;
+    width: 97%;
+    margin: 10px auto;
+    border: 2px dashed rgb(146, 150, 150);
+    border-radius: 10px;
+    background-color:  rgb(10, 1, 1)!important;
+
+}
+.imagefond{
+  margin: 40px auto;
+  color:rgb(87, 87, 190);
+
+}
+
+
+.uploadfilecontainer:hover {
+    cursor: pointer;
+    background-color: #ddfdff !important;
+    opacity: 0.8;
+}
+
+.files-list {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto;
+    background: rgb(146, 150, 150);
+
+    border-radius: 5px;
+     width: 96%;
+    color: rgb(62, 50, 228);
+    height: 30px;
+}
+
+.files-list .delete-file {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    height: 3px !important;
+}
+
+.files-list .delete-file img {
+    width: 30px;
+}
+.delete-file {
+    height: 4px !important;
+    padding: none;
+    margin: none;
+}
+//scss add apprenant//
+.input-group-append,
+.input-group-prepend {
+  background: #fff;
+  color: #6c757d;
+  width: auto;
+  border: none; }
+  .input-group-append .input-group-text,
+  .input-group-prepend .input-group-text {
+    background: transparent;
+    border-color: #dee2e6; }
+
+.form-control {
+  display: inline-block;
+  border: 1px solid #dee2e6;
+  font-family: "roboto", sans-serif;
+  font-size: 1rem;
+  color: #212529;
+  padding: 0 .75rem;
+  line-height: 14px;
+  font-weight: 300; }
+  .form-control.form-control-lg {
+    padding: 0.5rem 0.75rem; }
+  .form-control.form-control-sm {
+    padding: 0.25rem 0.75rem; }
+
+textarea.form-control {
+  height: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem; }
+
+select.form-control {
+  padding: 0.4375rem 0.75rem; }
+
+.form-group label {
+  font-size: 1rem;
+  line-height: 1;
+  vertical-align: top; }
+
+.form-group.has-danger .form-control {
+  border-color: #ff6258; }
+
+.form-group .file-upload-default {
+  visibility: hidden;
+  position: absolute; }
+
+.form-group .file-upload-info {
+  background: transparent; }
+  .text-md{
+    background-color:#42A948;
+    color: #fff;
+    font-size: 18px;
+  }
+.create-user{
+ margin-top: 2em !important;
+}

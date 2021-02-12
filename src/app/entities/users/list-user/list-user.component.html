@@ -1,0 +1,94 @@
+<!-- <div class="col-md-10 col-sm-12 grid-margin stretch-card  m-auto">
+  <div class="dash-right">
+    <div class="">
+      <div class="dash-title">
+        <h3 class="">Liste des utilisateurs</h3>
+      </div>
+      <div class=" div-btn">
+        <a [routerLink]="['create-user']" class="btn btn-success"
+          ><i class="fa fa-user-plus"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body d-flex justify-content-center">
+      <div *ngIf="!users.length" class="m-auto ">
+        <h1>Pas de users disponibles</h1>
+      </div>
+      <table class="table table-striped" *ngIf="users.length >= 1">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Mail</th>
+            <th>profil</th>
+            <th colspan="2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users ">
+            <td class="py-1">
+              <img src="data:image/png;base64,{{ user.avatar }}" alt="image" />
+            </td>
+            <td>{{ user.nom }}</td>
+
+            <td>{{ user.prenom }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.username }}</td>
+            <td class="action">
+              <a
+                [routerLink]="['/admin/posts/detail', user.id]"
+                class="btn btn-primary btn-sm"
+                ><i class="fa fa-plus"></i></a
+              >
+              <a
+                [routerLink]="['/admin/posts/edit', user.id]"
+                class="btn btn-info btn-sm"
+                ><i class="fa fa-edit"></i></a
+              >
+              <a (click)="onDelete(user.id)" class="btn btn-danger btn-sm"
+                ><i class="fa fa-trash"></i></a
+              >
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+    <div class="pagination">
+
+       <pagination-template
+      #p="paginationApi"
+      [id]="config.id"
+      (pageChange)="config.currentPage = $event"
+    >
+      <div class="custom-pagination " *ngIf="users.length >= 1">
+        <div class="pagination-previous" [class.disabled]="p.isFirstPage()">
+          <span *ngIf="!p.isFirstPage()" (click)="p.previous()"
+            >previous</span
+          >
+        </div>
+        <div
+          class="page-number"
+          *ngFor="let page of p.pages"
+          [class.current]="p.getCurrent() === page.value"
+        >
+          <span
+            (click)="p.setCurrent(page.value)"
+            *ngIf="p.getCurrent() !== page.value"
+            >{{ page.label }}</span
+          >
+          <div *ngIf="p.getCurrent() === page.value">
+            <span>{{ page.label }}</span>
+          </div>
+        </div>
+        <div class="pagination-next" [class.disabled]="p.isLastPage()">
+          <span *ngIf="!p.isLastPage()" (click)="p.next()"> next </span>
+        </div>
+      </div>
+      </pagination-template> 
+    </div>
+  </div>
+</div> -->

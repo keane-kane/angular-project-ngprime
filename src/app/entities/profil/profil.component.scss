@@ -1,0 +1,47 @@
+$font-primary: 'Poppins',Arial, sans-serif;
+$primary: #3445b4;
+$secondary: #44bef1;
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+}
+.stretch-card{
+  margin-top: 7em !important;
+  padding-bottom: 10PX;
+  background-color: $secondary;
+}
+.btn{
+  margin: none;
+  padding: none;
+}
+.disabled{
+  pointer-events: none;
+  border: none;
+  background-color: inherit;
+}
+
+
+.dash-title h3 {
+  text-align: center;
+
+
+}
+.div-btn{
+  position: absolute;
+  top: 2px;
+  right:15px;
+}
+
+
+
+
+  @media (max-width: 750px){
+
+
+  }
+  @media (max-width: 450px){
+
+
+ }
+
+

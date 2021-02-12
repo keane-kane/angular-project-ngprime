@@ -1,0 +1,130 @@
+<div class="login-page">
+  <div class="">
+    <div
+      class="p-grid p-nogutter p-justify-center p-align-center"
+      style="height: 100%"
+    >
+    <div class="p-xl-3 p-lg-5 p-md-7 p-sm-9 content">
+        <form class="login-form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+          <p-panel header="Sign In">
+            <div class="p-col-12">
+              <!-- <p-messages [(value)]="msg"></p-messages> -->
+            </div>
+            <div class="p-grid p-justify-center p-align-center">
+              <div class="p-xl-3 p-lg-3 p-md-3 p-sm-4">
+                <img src="assets/images/bgi.png" class="login-logo" />
+              </div>
+              <div class="p-col-12">
+                <div class="ui-inputgroup">
+                  <span class="ui-inputgroup-addon"
+                    ><i class="fa fa-user"></i
+                  ></span>
+                  <input
+                    id="input-username"
+                    type="text"
+                    size="30"
+                    pInputText
+                    name="username"
+                    [(ngModel)]="form.username"
+                    required
+                    minlength="6"
+                    #username="ngModel"
+                    placeholder="Enter Username"
+                  />
+                </div>
+              </div>
+              <div class="p-col-12">
+                <div class="ui-inputgroup">
+                  <span class="ui-inputgroup-addon"
+                    ><i class="fa fa-key"></i
+                  ></span>
+                  <input
+                    id="input-password"
+                    type="password"
+                    size="30"
+                    pInputText
+                    name="password"
+                    [(ngModel)]="form.password"
+                    required
+                    minlength="5"
+                    #password="ngModel"
+                    placeholder="Enter Password"
+                  />
+                </div>
+              </div>
+              <div class=" p-flex p-justify-content p-align-center">
+                <a>Forgot Password?</a>
+              </div>
+              <div class="p-col-12">
+                <button
+                  pButton
+                  type="submit"
+                  label="login"
+                  class="ui-button-raised"
+                ></button>
+              </div>
+         
+            </div>
+          </p-panel>
+        </form>
+        <div class="extra-page-footer">
+          <div style="color:#427976; font-style:italic; font-family: 'Z003' ">K2AA DESIGN</div>
+          <div>Version : {{ version }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="login-panel">
+  <div class="language-menu">
+    <select (change)="onLanguageChange($event)">
+      <option value="en" [selected]="locale == 'en'">English</option>
+      <option value="hi" [selected]="locale == 'hi'">Hindi</option>
+    </select>
+  </div>
+  <div class="p-grid p-nogutter p-justify-center p-align-center" style="height:100%">
+    <div class="p-xl-3 p-lg-6 p-md-8 p-sm-10">
+      <p-panel header="{{ 'Ng-PrimeLogin' | translate}}">
+        <div class="p-col-12">
+          <p-messages [(value)]="msgs"></p-messages>
+        </div>
+        <div class="p-grid p-justify-center p-align-center">
+          <div class="p-xl-6 p-lg-6 p-md-8 p-sm-10">
+            <img src="assets/images/logo-large.png" class="login-logo">
+          </div>
+          <div class="p-col-12">
+            <div class="ui-inputgroup">
+              <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+              <input id="input-username" type="text" size="30" pInputText [(ngModel)]="userName"
+                placeholder="Enter User name">
+            </div>
+          </div>
+          <div class="p-col-12">
+            <div class="ui-inputgroup">
+              <span class="ui-inputgroup-addon"><i class="fa fa-key"></i></span>
+              <input id="input-password" type="password" size="30" pInputText [(ngModel)]="password"
+                placeholder="Enter Password">
+            </div>
+          </div>
+          <div class="p-col-12 text-center">
+            <a>Forgot Password?</a>
+          </div>
+        </div>
+        <div class="p-grid">
+          <div class="p-col-6">
+            <button pButton type="button" label="{{ 'Login' | translate}}" class="ui-button-raised"
+              (click)="onClickLogin()"></button>
+          </div>
+          <div class="p-col-6">
+            <button pButton type="button" label="{{ 'Register' | translate}}" class="ui-button-raised"
+              [routerLink]="['/register']"></button>
+          </div>
+        </div>
+      </p-panel>
+      <div class="extra-page-footer">
+        <div>2019@ Nilav Patel. Made with <span class="color-red">❤</span>.</div>
+        <div>Version : {{version}}</div>
+      </div>
+    </div>
+  </div>
+</div> -->

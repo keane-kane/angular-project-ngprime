@@ -1,0 +1,35 @@
+<section class="dashboard-wrap mtb-40">
+  <div class="container">
+    <div class="body-content">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="dash-left">
+            <ul>
+              <li class="active"><a [routerLink]= "['create-promos']">Promos</a></li>
+              <li><a [routerLink]= "['referenciel']">Référentiels</a></li>
+              <li><a [routerLink]= "['grp-compt']">Groupe de compétences</a></li>
+              <li><a [routerLink]= "['comptence']">Compétences</a></li>
+              <li><a [routerLink]= "['grp-tags']">Groupe de tags</a></li>
+              <li><a [routerLink]= "['profils-sorti']">Profil de sortie</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="dash-right">
+            <div class="dash-header">
+              <div class="dash-title">
+                <h3>Liste des utilisateurs</h3>
+              </div>
+              <div class="dash-nav">
+                <a [routerLink]="['create-promos']" class="btn btn-success"
+                  >Add Promo</a
+                >
+              </div>
+            </div>
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,90 @@
+<div class="col-md-10 col-sm-12 grid-margin stretch-card  m-auto">
+  <div class="dash-right ">
+    <div class="">
+      <div class="dash-title ">
+        <h3 class="">Liste des profils</h3>
+      </div>
+      <div class="div-btn">
+        <a [routerLink]="['create-user']" class="btn btn-success"
+          ><i class="fa fa-user-plus"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body d-flex justify-content-center">
+      <div *ngIf="!profilSorti.length" class="m-auto ">
+        <h1>Pas de profils de sorties disponibles</h1>
+      </div>
+
+      <table class="table" *ngIf="profilSorti.length >= 1">
+        <thead>
+          <tr>
+            <th>Libellé</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of profilSorti; let i = index">
+            <td class="action text-justify" #td>
+              {{p.libelle}}
+            </td>
+
+            <td class="action text-center">
+              <a [routerLink]="['']" class="btn btn-primary btn-sm"
+                ><span class="fa fa-list-ul"></span
+              ></a>
+              <a (click)="onEdit(p.id, td)" class="btn btn-info btn-sm"
+                ><span class="fa fa-edit"></span
+              ></a>
+              <a (click)="onDelete(p.id)" class="btn btn-danger btn-sm"
+                ><span class="fa fa-trash"></span
+              ></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- <div class="col-lg-6 grid-margin stretch-card">
+  <div class="dash-right">
+    <div class="card">
+      <div class="dash-header d-flex justify-content-center">
+        <div class="dash-title ">
+          <h3 class=" pt-4 text-sm">Liste des Profils de Sorties</h3>
+        </div>
+         <div class="dash-nav ml-5 pt-4">
+          <a [routerLink]="['create-profil']" class="btn btn-info  fa fa-ajout">+</a>
+        </div>
+      </div>
+      <div class="card-body">
+
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="">Libellé</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          <tr *ngFor="let ps of profilSorti">
+            <td class="">{{ ps.libelle}}</td>
+
+            <td class="action">
+              <a [routerLink]="['']" class="btn btn-primary btn-sm">List {{ ps.libelle}}</a>
+              <a [routerLink]="['/admin/posts/edit', ps.id]" class="btn btn-info btn-sm">Edit</a>
+              <a (click)="onDelete(ps.id)" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div> -->
+
+<router-outlet></router-outlet>

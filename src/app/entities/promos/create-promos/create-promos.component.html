@@ -1,0 +1,256 @@
+<div class="reverse">
+  <h3>Créer une promotion</h3>
+
+  <div class="container-fluid bg-color">
+    <div class="obligatoire">
+      * Obligatoire
+    </div>
+    <form class="forms-sample">
+      <div class="form-group form-row">
+        <label class="label col-sm-3 " for="lang"
+          >Choix de la langue <i>*</i></label
+        >
+        <div class="col-sm-4">
+          <select
+            type="text"
+            name="lang"
+            class="form-control"
+            placeholder="lang"
+          >
+            <option value="">Français</option>
+            <option value="">Anglais</option>
+            <option value="">Arabe</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group form-row">
+        <label class="label col-sm-3" for="titre">Titre <i>*</i></label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            name="titre"
+            class="form-control"
+            placeholder="titre"
+          />
+        </div>
+      </div>
+      <div class="form-group form-row">
+        <label class="label col-sm-3" for="description"
+          >Description de la promotion <i>*</i></label
+        >
+        <div class="col-md-9">
+          <textarea
+            name="description"
+            rows="2"
+            class="form-control"
+            placeholder="Message"
+          ></textarea>
+        </div>
+      </div>
+      <div class="form-group form-row">
+        <label class="label col-sm-3" for="lieu">Lieu de la promotion </label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            name="lieu"
+            class="form-control"
+            placeholder="Phone"
+          />
+        </div>
+      </div>
+      <div class="form-group form-row">
+        <label class="label col-sm-3" for="ref-agate">Référence Agate</label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            name="ref-agate"
+            class="form-control"
+            placeholder="Phone"
+          />
+        </div>
+      </div>
+      <div class="form-group form-row">
+        <label class="label col-sm-3" for="fabrique"
+          >Choix de la fabrique <i>*</i></label
+        >
+        <div class="col-sm-4">
+          <select name="fabrique" id="" class="form-control">
+            <option value=""></option>
+            <option value=""></option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group form-row">
+        <div class="col-sm-6">
+          <div class=" form-group form-row">
+            <label class="label col-sm-5 offset-1" for="date-debut"
+              >Date de début <i>*</i></label
+            >
+            <div class="col-sm-6">
+              <input type="date" name="date-debut" class="form-control" />
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 ">
+          <div class="form-group form-row">
+            <label class="label col-sm-5" for="date-fin"
+              >Date de fin <i>*</i></label
+            >
+            <div class="col-sm-7">
+              <input type="date" name="date-fin" class="form-control" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group form-row ">
+        <label class=" col-sm-12 ml-2 " for="referenciel">
+          <a data-toggle="collapse" href="#collapse1"
+            >Références <i>*</i> <span class="fa fa-arrow-right arrow "></span
+          ></a>
+        </label>
+        <div class="col-sm-12 ">
+          <div class="panel-group">
+            <div class="panel panel-default">
+              <div
+                id="collapse1"
+                class="panel-collapse collapse justify-content-center row"
+              >
+                <div class=" col-md-3" *ngFor="let ref of refs">Panel Body</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="form-group form-row">
+        <div
+          class="uploadfilecontainer"
+          (click)="fileInput.click()"
+          appDragDrop
+          (onFileDropped)="uploadFile($event)"
+        >
+          <input
+            hidden
+            type="file"
+            #fileInput
+            (change)="uploadFile($event.target.files)"
+          />
+           <div class="imagefond text-center">
+             <small>fichier accepté JPEG ou PNG</small>
+             <p class="text-sm-3">Faites glissez une image ou</p>
+             <h5 class="">Importez depuis votre ordinateur</h5>
+           </div>
+        </div>
+        <div class="files-list" *ngFor="let file of files;let i= index" >
+          <p>{{ file }}</p>
+          <button class="delete-file " (click)="deleteAttachment(i)" >
+            <span class="btn btn-danger fa fa-delete" >-</span>
+          </button>
+        </div>
+      </div>
+      <div class="d-flex ">
+        <div class="">
+          <button class="btn btn-success float-left  ">&lt;--- Retour</button>
+        </div>
+        <div class="ml-auto">
+          <button class="btn btn-success float-right ">
+            Créer une promotion et ajouter des apprenants ---&gt;
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-10 grid-margin stretch-card m-auto create-user">
+    <h4 class="card-title text-center">Ajout d'un référenciel</h4>
+    <div class="card">
+      <div class="card-body">
+        <div class="obligatoire">
+          * Obligatoire
+        </div>
+
+        <form class="forms-sample">
+          <div class="form-group form-row">
+            <label class="col-md-2" for="libelle">Libelle <i>*</i></label>
+            <div class="col-md-8">
+              <input
+                type="text"
+                name="titre"
+                class="form-control"
+                placeholder="libelle"
+              />
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <label class="col-md-2 mt-5" for="description">Présentation<i>*</i></label>
+            <div class="col-md-8">
+              <textarea
+                name="description"
+                rows="5"
+                class="form-control"
+                placeholder="Message"
+              ></textarea>
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label class="col-sm-2" for="lang">Competences <i>*</i></label>
+            <div class="col-sm-8">
+              <select
+                type="text"
+                name="lang"
+                class="form-control"
+                placeholder="competence"
+              >
+                <option value="">Français</option>
+                <option value="">Anglais</option>
+                <option value="">Arabe</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label class="col-md-2" for="lieu">Programme</label>
+            <div class="col-md-8">
+              <input
+                type="file"
+                name="lieu"
+                class="form-control"
+                placeholder="Uploader le programme"
+              />
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <label class="col-md-2" for="ref-agate">Critères d'évaluation</label>
+            <div class="col-md-8">
+              <input
+                type="text"
+                name="ref-agate"
+                class="form-control"
+                placeholder="critere-evaluation"
+              />
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label class="col-md-2" for="referenciel"
+              >Critères d'admission<i>*</i></label
+            >
+            <div class="col-md-8">
+              <select name="referenciel" id="" class="form-control">
+                <option value=""></option>
+                <option value=""></option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <div class="col-sm-8 offset-2">
+              <button class="btn btn-success form-control">Soumettre</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- grid-margin stretch-card -->

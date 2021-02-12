@@ -1,0 +1,61 @@
+
+
+<!-- <div class="col-md-10 col-sm-12 grid-margin stretch-card  m-auto">
+  <div class="dash-right">
+    <div class=" ">
+      <div class="dash-title">
+        <h3 class="">Liste des profils</h3>
+      </div>
+      <div class="div-btn">
+        <a [routerLink]="['create-user']" class="btn btn-success"
+          ><i class="fa fa-user-plus"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body d-flex justify-content-center">
+      <div *ngIf="!profils.length" class="m-auto ">
+        <h1>Pas de profils disponibles</h1>
+      </div>
+
+      <table class="table" *ngIf="profils.length >= 1">
+        <thead>
+          <tr>
+            <th>Libellé</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of profils; let i = index">
+            <td class="action text-justify">
+             <input
+             type="text"
+             name="libelle"
+             class="form-control disabled"
+             [(ngModel)] = "p.libelle"
+             required
+             #input= "ngModel"
+             (click)="onChange(p.id, input)"
+               >
+            </td>
+
+            <td class="action text-center">
+              <a [routerLink]="['profil-detail', p.id]" class="btn btn-primary btn-sm"
+                ><span class="fa fa-list-ul"></span
+              ></a>
+              <a (click)="onEdit(p.id, input)" class="btn btn-info btn-sm"
+                ><span class="fa fa-edit"></span
+              ></a>
+              <a (click)="onDelete(p.id)" class="btn btn-danger btn-sm"
+                ><span class="fa fa-trash"></span
+              ></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->
+dfggggggggggggggggggggggggggggggggggggggggggg
+<router-outlet></router-outlet>

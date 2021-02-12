@@ -1,0 +1,119 @@
+<div class="col-md-10 grid-margin stretch-card m-auto create-user">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title text-center">Creation d'un compétence</h4>
+      <div class="obligatoire">
+        * Obligatoire
+      </div>
+
+      <form class="forms-sample">
+        <div class="form-group form-row">
+          <label class="col-md-2" for="libelle"
+            >Groupe de Competence <i>*</i></label
+          >
+          <div class="col-md-8">
+            <select name="listCompetences" id="" class="form-control">
+              <option value="">Développer le front d'une application </option>
+              <option value="">Développer le back d'une application </option>
+              <option value="">Développer le front d'une application </option>
+              <option value="">Développer le back d'une application </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group form-row">
+          <label class="col-md-2" for="libelle">Libelle <i>*</i></label>
+          <div class="col-md-8">
+            <input
+              type="text"
+              name="titre"
+              class="form-control"
+              placeholder="libelle"
+            />
+          </div>
+        </div>
+        <div class="form-group form-row ">
+          <label class=" col-sm-2  " for="niveau">Niveaux <i>*</i></label>
+          <div class="col-sm-8 ">
+            <a data-toggle="collapse" href="#collapse1">
+              <span class="border border-primary bg-primary p-1 text-light"
+                >Niveau 1</span
+              >
+            </a>
+            <a data-toggle="collapse" href="#collapse2">
+              <span class="border border-primary bg-secondary p-1">Niveau 2</span>
+            </a>
+            <a data-toggle="collapse" href="#collapse3">
+              <span class="border border-primary bg-secondary p-1">Niveau 3</span>
+            </a>
+
+            <div id="collapse1" class="panel-collapse collapse  row">
+
+              <div class=" col-md-6">
+                <label for="gpaction">Groupe d'actions à realiser</label>
+                <textarea
+                  class="form-control"
+                  id="egpaction"
+                  rows=""
+                ></textarea>
+              </div>
+              <div class=" col-md-6">
+                <label for="gpaction"> Criteres d'evaluation </label>
+                <textarea
+                  class="form-control"
+                  id="egpaction"
+                  rows=""
+                ></textarea>
+              </div>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse  row">
+
+              <div class=" col-md-6">
+                <label for="gpaction">Groupe d'actions à realiser</label>
+                <textarea
+                  class="form-control"
+                  id="egpaction"
+                  rows=""
+                ></textarea>
+              </div>
+              <div class=" col-md-6">
+                <label for="gpaction"> Criteres d'evaluation </label>
+                <textarea
+                  class="form-control"
+                  id="egpaction"
+                  rows=""
+                ></textarea>
+              </div>
+            </div>
+             <div id="collapse3" class="panel-collapse collapse  row">
+
+              <div class=" col-md-6">
+                <label for="gpaction">Groupe d'actions à realiser</label>
+                <textarea
+                  class="form-control"
+                  id="egpaction"
+                  rows=""
+                ></textarea>
+              </div>
+              <div class=" col-md-6">
+                <label for="gpaction"> Criteres d'evaluation </label>
+                <textarea
+                  class="form-control"
+                  id="egpaction"
+                  rows=""
+                ></textarea>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="form-group form-row">
+          <div class="col-sm-8 offset-2">
+            <button class="btn btn-success form-control">Soumettre</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
