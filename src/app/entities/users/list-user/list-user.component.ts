@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../../core/services/shared.service';
 import { User } from '../../../core/models/user.model';
+import { RouteStateService } from 'src/app/core/services/route-state.service';
 
 @Component({
   selector: 'app-list-user',
@@ -12,28 +13,36 @@ export class ListUserComponent implements OnInit {
 
   users: User[] = [];
   error = '';
-  config = {
-    id: 'custom',
-    itemsPerPage: 10,
-    currentPage: 1,
-    totalItems: this.users.length
-  };
+  columns: any[];
+  employees: User[];
+  pageSize: number;
 
-  constructor(private sharedService: SharedService)
-   { this.sharedService.url = '/users'; }
+  constructor(
+    private sharedService: SharedService,
+    routeStateService: RouteStateService,
+    ) {
+
+  }
 
   ngOnInit(): void {
+    this.sharedService.url = '/users';
+    this.pageSize = 10;
+
+    this.columns = [
+      { field: 'id', header: 'Id' },
+      { field: 'prenom', header: 'Prenom' },
+      { field: 'nom', header: 'Address' },
+      { field: 'email', header: 'Email' },
+      { field: 'phone', header: 'Phone' }
+    ];
       this.onFetch();
     }
 
-    onFetch(): void{
+    onFetch(): void {
       this.sharedService.getAll()
-      .subscribe(users =>
-      {
-
+      .subscribe(users => {
         console.log(users);
         this.users = users;
-        console.log(this.users);
       });
     }
 
@@ -49,8 +58,5 @@ export class ListUserComponent implements OnInit {
       }
     }
 
-    onPageChange(event): void{
-      console.log(event);
-      this.config.currentPage = event;
-    }
+    onEdit(id) {}
 }

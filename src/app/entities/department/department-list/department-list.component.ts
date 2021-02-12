@@ -22,6 +22,7 @@ export class DepartmentListComponent implements OnInit {
 
   ngOnInit() {
     this.departments = this.departmentService.getAllDepartments();
+
   }
 
   goToDepartmentDetails(department: number) {

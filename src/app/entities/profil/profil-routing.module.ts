@@ -4,14 +4,11 @@ import { ProfilDetailComponent } from './profil-detail/profil-detail.component';
 import { ProfilComponent } from './profil.component';
 
 const routes: Routes = [
-    {
-        path: '',
-        redirectTo: 'list-profil'
-    },
-    {  path: 'list-profil', component: ProfilComponent
 
+    {  path: '', component: ProfilComponent
     },
-    {  path: 'detail-profil', component: ProfilDetailComponent
+
+    {  path: '', component: ProfilDetailComponent
     },
 ];
 

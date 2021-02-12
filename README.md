@@ -35,7 +35,6 @@ Password ADMIN
 
 ### Login page
 
-![image login](https://https://github.com/keane-kane/angular-pfr-primeng/master/src/assets/images/loginPage.png)
 ![Alt text](src/assets/images/loginPage.png?raw=true "image login")
 ### Details page
 

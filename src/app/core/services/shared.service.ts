@@ -11,20 +11,18 @@ import { Key } from 'protractor';
 })
 export class SharedService {
 
-  public url = '';
+   url = '';
   constructor(private http: HttpClient) { }
 
-  getAll(): any{
+
+  getAll(): any {
     return this.http
      .get(environment.apiUrl + this.url, {headers: {Accept: 'application/json'} })
        .pipe(
-        map(d => {
-            const datas: any[] = [];
-            const data = [];
-            data.push(d);
-            for (const key in data){
-
-              if (data.hasOwnProperty(key)){
+        map(data => {
+          const datas = [];
+            for (const key in data) {
+              if (data.hasOwnProperty(key)) {
                 datas.push({...data[key], id: +key + 1});
               }
 
@@ -34,21 +32,21 @@ export class SharedService {
            catchError(this.handleError)));
   }
 
-  getById(id: number): any{
-    return this.http.get(`${environment.apiUrl}${this.url}/${id}`);
+  getById(id: number): any {
+    return this.http.get(`${environment.apiUrl}${this.url}/${id}`, {headers: {Accept: 'application/json'}});
   }
 
-  create(data: any): any{
+  create(data: any): any {
     return this.http.post(`${environment.apiUrl}${this.url}`, data)
      .pipe( catchError(this.handleError));
   }
 
-  update(data: any, id: number): any{
+  update(data: any, id: number): any {
     return this.http.put(`${environment.apiUrl}${this.url}/${id}`, data).pipe(
       catchError(this.handleError));
   }
 
-  delete(id: number): any{
+  delete(id: number): any {
     return this.http.delete(`${environment.apiUrl}${this.url}/${id}`).pipe(
     catchError(this.handleError)
     );
