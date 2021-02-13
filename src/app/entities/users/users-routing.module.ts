@@ -12,12 +12,7 @@ const routes: Routes = [
     },
     {  path: 'user-list', component: ListUserComponent },
     {  path: 'create-user', component: CreateUserComponent },
-    {  path: 'list-profil', component: ProfilComponent,
-        loadChildren: () => import('src/app/entities/profil/profil.module').then(m => m.ProfilModule)
-    },
-    {  path: 'detail-profil/:id', component: ProfilDetailComponent,
-        loadChildren: () => import('src/app/entities/profil/profil.module').then(m => m.ProfilModule)
-    },
+
 
 ];
 

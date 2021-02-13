@@ -23,9 +23,8 @@ export class MenuComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.items = this.menuDataService.getMenuList();
-         console.log(this.items);
 
-        var that = this;
+        const that = this;
         this.menuDataService.toggleMenuBar.subscribe(function (data: any) {
             if (data && data != null) {
                 that.visible = !that.visible;

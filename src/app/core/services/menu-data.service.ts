@@ -27,13 +27,14 @@ export class MenuDataService {
                 Label: 'Forum', Icon: 'fa-comments', RouterLink: '/admin/forum', Childs: null, IsChildVisible: false
             },
             {
-                Label: 'Paramétes', Icon: 'fa-cog', RouterLink: '/admin/parametre', Childs: [
+                Label: 'Paramétes', Icon: 'fa-cog', RouterLink: '', Childs: [
 
-                    { Label: 'Menu Level 1.2.1', RouterLink: '/admin/parametre', Childs: null, IsChildVisible: false },
-                    { Label: 'Menu Level 1.2.2', RouterLink: '/admin/parametre', Childs: null, IsChildVisible: false },
-                    { Label: 'Menu Level 1.2.2', RouterLink: '/admin/parametre', Childs: null, IsChildVisible: false },
-                    { Label: 'Menu Level 1.2.2', RouterLink: '/admin/parametre', Childs: null, IsChildVisible: false },
-                    { Label: 'Menu Level 1.2.2', RouterLink: '/admin/parametre', Childs: null, IsChildVisible: false },
+                    { Label: 'Promos', RouterLink: '/admin/promos', Childs: null, IsChildVisible: false },
+                    { Label: 'Référentiels', RouterLink: '/admin/referenciel', Childs: null, IsChildVisible: false },
+                    { Label: 'Groupe competences', RouterLink: '/admin/grp-compt', Childs: null, IsChildVisible: false },
+                    { Label: 'Compétences', RouterLink: '/admin/comptence', Childs: null, IsChildVisible: false },
+                    { Label: 'Groupe tags', RouterLink: '/admin/grp-tag', Childs: null, IsChildVisible: false },
+                    { Label: 'Profils sorties', RouterLink: '/admin/profil-sortie', Childs: null, IsChildVisible: false },
                 ], IsChildVisible: false
             },
             {

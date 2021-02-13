@@ -11,10 +11,9 @@ import { RouteStateService } from 'src/app/core/services/route-state.service';
 export class ListUserComponent implements OnInit {
 
 
-  users: User[] = [];
+  users: User[];
   error = '';
   columns: any[];
-  employees: User[];
   pageSize: number;
 
   constructor(
@@ -35,7 +34,12 @@ export class ListUserComponent implements OnInit {
       { field: 'email', header: 'Email' },
       { field: 'phone', header: 'Phone' }
     ];
-      this.onFetch();
+    this.sharedService.getAll()
+    .subscribe(users => {
+      console.log(users);
+      this.users = users;
+    });
+
     }
 
     onFetch(): void {

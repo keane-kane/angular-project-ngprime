@@ -1,6 +1,6 @@
-import { SharedService } from './../../services/shared.service';
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { SharedService } from '../../core/services/shared.service';
 
 @Component({
   selector: 'app-competences',

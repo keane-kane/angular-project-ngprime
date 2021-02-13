@@ -45,7 +45,7 @@ const appRoutes: Routes = [
         },
         {
             path: 'users',
-            loadChildren: () => import('src/app/entities/users/user.module').then(m => m.UserModule),
+            loadChildren: () => import('src/app/entities/entities.module').then(m => m.EntitiesModule),
             canActivate: [AuthGuard]
         }
         ]

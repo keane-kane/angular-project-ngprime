@@ -5,7 +5,7 @@ import {
   Renderer2,
   ViewChild,
 } from '@angular/core';
-import { FormArray, FormControl, NgForm,FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, NgForm, FormGroup, Validators } from '@angular/forms';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { RouteStateService } from 'src/app/core/services/route-state.service';
@@ -37,7 +37,7 @@ export class ProfilComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.sharedService.url = '/admin/profils';
+    this.sharedService.url = '/admin/profils?archive=false';
     this.columns = [
       { field: 'libelle', header: 'Libelle' }];
 
@@ -49,13 +49,15 @@ export class ProfilComponent implements OnInit {
 
   onDelete(id: number): void {
     if (confirm('Are you sure want to delete id = ' + id)) {
+      this.sharedService.url = '/admin/profils';
       this.sharedService.delete(+id).subscribe(
         (res) => {
-          console.log(res);
           this.ngOnInit();
+          console.log(res);
         },
         (error) => (this.error = error)
       );
+
     }
   }
 

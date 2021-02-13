@@ -1,5 +1,5 @@
-import { SharedService } from './../../services/shared.service';
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../../core/services/shared.service';
 
 @Component({
   selector: 'app-grp-competences',
