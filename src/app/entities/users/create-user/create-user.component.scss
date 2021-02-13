@@ -1,61 +1,253 @@
-.input-group-append,
-.input-group-prepend {
-  background: #fff;
-  color: #6c757d;
-  width: auto;
-  border: none;
+.user,.forms-sample{
+  background-color: #d9d9d9;
 }
-  .input-group-append .input-group-text,
-  .input-group-prepend .input-group-text {
-    background: transparent;
-    border-color: #dee2e6;
+button:focus {
+  outline: none;
+}
+button:hover , .spna-col {
+  outline: none;
+    background-color: #04838f !important;
+}
+
+button.ghost {
+  background-color: transparent;
+  border-color: #FFFFFF;
+}
+
+button {
+    border-radius: 1px;
+    border: 1px solid #d9eceb;
+    background-color: #427976;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    margin-top: 20px;
+
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+
+.ng-valid[required], .ng-valid.required {
+  border-left: 5px solid #42A948;
+}
+
+// .ng-invalid:not(form) {
+// }
+
+
+// .ui-inputgroup {
+
+//     border-left: 5px solid #427976; 
+   
+// }
+
+
+
+
+input {
+    background-color: #eee;
+    border: none;
+    padding:1em;
+    font-size: 16px;
+   
+}
+select {
+    background-color: #eee;
+    border: none;
+    padding:1.1em;
+    margin-top: -3.5em;
+    font-size: 16px;
+   
+}
+input:focus{
+  outline: none;
+}
+input::placeholder{
+  outline: none;
+  font-size: 14px;
+  font-style: oblique;
+}
+
+.spna-col{
+  background: #427976;
+  text-align: center;
+}
+.spna-col a{
+ top: 1em !important;
+  font-size: 18px;
+  color: #fff !important;
+  text-align: center;
+}
+label{
+  color: #000;
+  font-size: 18px;
+  font-weight: 450;
+}
+select:focus,
+textarea:focus, 
+textarea.form-control:focus, 
+input.form-control:focus, 
+input[type=text]:focus, 
+input[type=password]:focus, 
+input[type=email]:focus, 
+input[type=tel]:focus {
+  box-shadow: inset 0px -1px 2px #427976 !important;
+  background-color: #fff;
+  .ui-inputgroup{
+    box-shadow: inset 0px -1px 0 #427976 !important;
   }
-
-.form-control {
-  display: inline-block;
-  border: 1px solid #dee2e6;
-  font-family: "roboto", sans-serif;
-  font-size: 0.75rem;
-  color: #212529;
-  padding: 0 .75rem;
-  line-height: 14px;
-  font-weight: 300; }
-  .form-control.form-control-lg {
-    padding: 0.5rem 0.75rem; }
-  .form-control.form-control-sm {
-    padding: 0.25rem 0.75rem; }
-
-textarea.form-control {
-  height: auto;
-  padding-top: 1rem;
-  padding-bottom: 1rem; }
-
-select.form-control {
-  padding: 0.4375rem 0.75rem; }
-
-.form-group label {
-  font-size: 0.875rem;
-  line-height: 1;
-  vertical-align: top; }
-
-.form-group.has-danger .form-control {
-  border-color: #ff6258; }
-
-.form-group .file-upload-default {
-  top: 1.61em;
-  left: 0.28em;
-  z-index: 2222222222;
-  position: absolute;
 }
 
-.form-group .file-upload-info {
-  background: transparent; }
-  .text-md{
-    background-color:#42A948;
-    color: #fff;
-    font-size: 18px;
-  }
-.create-user{
- margin-top: 2em !important;
+.login-logo{
+    width: 100px;
+    height: 100px;
+    text-align: center !important;
+    justify-content: center;
 }
+.ui-inputgroup-addon{
+    border: none;
+    color: #427976 !important;
+
+    i {
+      margin-top:10px;
+      font-size: 18px;
+      padding: 5px ;
+    }
+}
+
+
+
+// @media (max-width: 1400px){
+//  .content{
+//    width: 60%;
+//  }
+//  input{
+//    width: 22.5em;
+//  }
+// }
+// @media (max-width: 1150px){
+//   .content{
+//     width: 75%;
+//   }
+//   input{
+//     width: 20em;
+//   }
+//   button{
+//     width: 23em !important;
+//   }
+//  }
+//  @media (max-width: 900px){
+//   .content{
+//     width: 95%;
+//   }
+//   input{
+//     width: 20em;
+//   }
+//  }
+//  @media (max-width: 750px){
+//   .content{
+//     width: 100%;
+//   }
+//   input{
+//     width: 20em;
+//     padding: 1.1em;
+//   }
+//   button{
+//     padding: .8em !important;
+//   }
+//   .img-odc{
+//     text-align: center;
+//   }
+//   .img{
+//     width: 8em;
+//     border-radius: 50%;
+//   }
+//   .app-name {
+//     text-align: center;
+//     top: 0em;
+//     margin-bottom: .5em;
+//   }
+//  }
+//  @media (max-width: 450px){
+//   .content{
+//     width: 100%;
+//   }
+//   input{
+//     width: 15em !important;
+//     padding: 1.1em;
+//   }
+//   button{
+//     padding: .8em !important;
+//   }
+//}
+
+
+
+//=============================================
+// .input-group-append,
+// .input-group-prepend {
+//   background: #fff;
+//   color: #6c757d;
+//   width: auto;
+//   border: none;
+// }
+//   .input-group-append .input-group-text,
+//   .input-group-prepend .input-group-text {
+//     background: transparent;
+//     border-color: #dee2e6;
+//   }
+
+// .form-control {
+//   display: inline-block;
+//   border: 1px solid #dee2e6;
+//   font-family: "roboto", sans-serif;
+//   font-size: 0.75rem;
+//   color: #212529;
+//   padding: 0 .75rem;
+//   line-height: 14px;
+//   font-weight: 300; }
+//   .form-control.form-control-lg {
+//     padding: 0.5rem 0.75rem; }
+//   .form-control.form-control-sm {
+//     padding: 0.25rem 0.75rem; }
+
+// textarea.form-control {
+//   height: auto;
+//   padding-top: 1rem;
+//   padding-bottom: 1rem; }
+
+// select.form-control {
+//   padding: 0.4375rem 0.75rem; }
+
+// .form-group label {
+//   font-size: 0.875rem;
+//   line-height: 1;
+//   vertical-align: top; }
+
+// .form-group.has-danger .form-control {
+//   border-color: #ff6258; }
+
+// .form-group .file-upload-default {
+//   top: 1.61em;
+//   left: 0.28em;
+//   z-index: 2222222222;
+//   position: absolute;
+// }
+
+// .form-group .file-upload-info {
+//   background: transparent; }
+//   .text-md{
+//     background-color:#42A948;
+//     color: #fff;
+//     font-size: 18px;
+//   }
+// .create-user{
+//  margin-top: 2em !important;
+// }
 

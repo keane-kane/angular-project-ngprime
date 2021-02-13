@@ -6,12 +6,9 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { ListUserComponent } from './list-user/list-user.component';
 
 const routes: Routes = [
-    {
-        path: '',
-        redirectTo: 'user-list'
-    },
-    {  path: 'user-list', component: ListUserComponent },
-    {  path: 'create-user', component: CreateUserComponent },
+
+    {  path: '', component: CreateUserComponent },
+    {  path: '', component: ListUserComponent },
 
 
 ];

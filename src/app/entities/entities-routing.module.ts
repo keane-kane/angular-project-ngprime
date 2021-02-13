@@ -22,16 +22,6 @@ const routes: Routes = [
         component: ProfilComponent,
         loadChildren: () => import('src/app/entities/profil/profil.module').then(m => m.ProfilModule)
     },
-    { path: 'admin-parms', component: PromosComponent},
-    { path: 'create-promos', component: CreatePromosComponent},
-    { path: 'profils-sorti', component: ProfilSortieComponent},
-    { path: 'grp-compt', component: GrpCompetencesComponent},
-    { path: 'create-grp-compt', component: CreateGrpcompetencesComponent},
-    { path: 'comptence', component: CompetencesComponent},
-    { path: 'create-comptence', component: CreateCompetencesComponent},
-    { path: 'grp-tags', component: GrpTagsComponent},
-    { path: 'referenciel', component: ReferencielsComponent},
-    { path: 'create-referenciel', component: CreateReferencielComponent},
 
     {
         path: 'list-profil', component: ProfilComponent,
@@ -42,7 +32,15 @@ const routes: Routes = [
         loadChildren: () => import('src/app/entities/profil/profil.module').then(m => m.ProfilModule)
     },
     {
-        path: '', component: ListUserComponent,
+        path: 'user-list', component: ListUserComponent,
+        loadChildren: () => import('src/app/entities/users/user.module').then(m => m.UserModule)
+    },
+    {
+        path: 'create-user', component: CreateUserComponent,
+        loadChildren: () => import('src/app/entities/users/user.module').then(m => m.UserModule)
+    },
+    {
+        path: 'edit-user/:id', component: CreateUserComponent,
         loadChildren: () => import('src/app/entities/users/user.module').then(m => m.UserModule)
     },
 ];

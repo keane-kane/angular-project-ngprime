@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { RouteStateService } from 'src/app/core/services/route-state.service';
 import { SharedService } from '../../../core/services/shared.service';
 
 @Component({
@@ -22,8 +23,8 @@ export class CreateUserComponent implements OnInit {
     private fb: FormBuilder,
     private sharedService: SharedService,
     private router: Router,
-    private route: ActivatedRoute
-  ) {this.sharedService.url = '/api/users'; }
+    private route: ActivatedRoute,
+  ) {this.sharedService.url = '/users'; }
 
   ngOnInit(): void {
 
@@ -116,4 +117,7 @@ export class CreateUserComponent implements OnInit {
       );
     }
   }
+
+
+
 }

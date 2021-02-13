@@ -18,7 +18,7 @@ export class ListUserComponent implements OnInit {
 
   constructor(
     private sharedService: SharedService,
-    routeStateService: RouteStateService,
+    private routeStateService: RouteStateService,
     ) {
 
   }
@@ -28,11 +28,11 @@ export class ListUserComponent implements OnInit {
     this.pageSize = 10;
 
     this.columns = [
-      { field: 'id', header: 'Id' },
+      { field: 'avatar', header: 'Image' },
       { field: 'prenom', header: 'Prenom' },
-      { field: 'nom', header: 'Address' },
+      { field: 'nom', header: 'Nom' },
       { field: 'email', header: 'Email' },
-      { field: 'phone', header: 'Phone' }
+      { field: 'action', header: 'Action' }
     ];
     this.sharedService.getAll()
     .subscribe(users => {
@@ -62,5 +62,11 @@ export class ListUserComponent implements OnInit {
       }
     }
 
-    onEdit(id) {}
+    onEdit(id: number): any {
+      this.routeStateService.add('User details', '/admin/users/edit-user/' + id, id, false);
+    }
+
+    onDetail(id: number): any {
+      this.routeStateService.add('User details', '/admin/users/detail-user/' + id, id, false);
+     }
 }

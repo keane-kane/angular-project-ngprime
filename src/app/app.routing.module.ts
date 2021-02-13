@@ -24,16 +24,6 @@ const appRoutes: Routes = [
             canActivate: [AuthGuard]
         },
         {
-            path: 'rendus',
-            loadChildren: () => import('src/app/entities/department/department.module').then(m => m.DepartmentModule),
-            canActivate: [AuthGuard]
-        },
-        {
-            path: 'explorer',
-            loadChildren: () => import('src/app/entities/employees/employees.module').then(m => m.EmployeesModule),
-            canActivate: [AuthGuard]
-        },
-        {
             path: 'forum',
             loadChildren: () => import('src/app/entities/contactus/contactus.module').then(m => m.ContactUsModule),
             canActivate: [AuthGuard]

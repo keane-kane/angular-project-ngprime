@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
           switch (decodedToken.roles[0]) {
             case 'ROLE_ADMIN' : {
               this.userContextService.setUser(decodedToken);
-              this.routeStateService.add('Users', '/admin/users', null, true);
+              this.routeStateService.add('Users', '/admin/users/user-list', null, true);
               break;
             }
           }
@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
   //   this.authService.login(this.form)
   //     .subscribe(
   //       userData => {
-  
+
   //         const helper = new JwtHelperService();
 
   //         // tslint:disable-next-line: no-string-literal

@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { ToastService } from 'src/app/core/services/toast.service';
 import { birthDateValidator } from 'src/app/core/validators/birthdate.validators';
-import { UserDataService } from 'src/app/core/services/user-data.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -23,7 +22,7 @@ export class RegisterUserComponent implements OnInit {
 
   version: string;
 
-  constructor(private userService: UserDataService, private router: Router, private fb: FormBuilder, private toastService: ToastService) { }
+  constructor(private router: Router, private fb: FormBuilder, private toastService: ToastService) { }
 
   ngOnInit() {
     this.userform = this.fb.group({
@@ -37,13 +36,15 @@ export class RegisterUserComponent implements OnInit {
   }
 
   onClickRegisterUser() {
-    let isRegistered: boolean = this.userService.addUser(this.userform.controls["name"].value,
-      this.userform.controls["password"].value,
-      this.userform.controls["emailId"].value,
-      this.userform.controls["birthDate"].value);
+    // tslint:disable-next-line: quotemark
+      // tslint:disable-next-line: no-unused-expression
+      const isRegistered: boolean = (this.userform.controls['name'].value,
+      this.userform.controls['password'].value,
+      this.userform.controls['emailId'].value,
+      this.userform.controls['birthDate'].value);
     if (isRegistered) {
       this.router.navigate(['/login']);
-      this.toastService.addSingle("success", "", "User registered.")
+      this.toastService.addSingle('success', '', 'User registered.');
     }
   }
 

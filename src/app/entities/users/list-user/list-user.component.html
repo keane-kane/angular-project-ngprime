@@ -1,26 +1,75 @@
 <app-header-breadcrumb></app-header-breadcrumb>
-<p-panel header="Employees List">
-    <div class="ui-g">
-        <div class="ui-g-10 ui-sm-8"><label style="float:right;">Page Size:</label></div>
-        <div class="ui-g-2 ui-sm-4"><input type="text" pInputText [(ngModel)]="pageSize"></div>
+<p-panel header="Users List">
+  <div class="div-btn">
+    <a [routerLink]="['/admin/users/create-user']" class="btn btn-success"
+      ><i class="fa fa-user-plus"></i
+    ></a>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-10 ui-sm-8">
+      <label style="float: right">Page Size:</label>
     </div>
-    <p-table [value]="users" [paginator]="true" [rows]="pageSize">
-        <ng-template pTemplate="header">
-            <tr>
-                <th *ngFor="let col of columns">
-                    {{col.header}}
-                </th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-user>
-            <tr>
-                <td *ngFor="let col of columns">
-                    <div *ngIf="col.field != 'Department'">{{user[col.field]}}</div>
-                    <div *ngIf="col.field == 'Department'"><a (click)="onEdit(user.id)">{{user[col.field]}}</a></div>
-                </td>
-            </tr>
-        </ng-template>
-    </p-table>
+    <div class="ui-g-2 ui-sm-4">
+      <input type="text" pInputText [(ngModel)]="pageSize" />
+    </div>
+  </div>
+  <div *ngIf="users.length == 0" class="m-auto">
+    <h1>Pas de Users disponibles</h1>
+  </div>
+  <p-table
+    [value]="users"
+    [paginator]="true"
+    [rows]="pageSize"
+    *ngIf="users.length >= 1"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th *ngFor="let col of columns">
+          {{ col.header }}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+      <tr>
+        <td *ngFor="let col of columns">
+          <div *ngIf="col.field == 'avatar'">
+            <td class="">
+              <img
+               src="data:image/jpg;base64,{{ user[col.field] }}"
+                alt="image"
+                style="width: 50px;height: 40px "
+              />
+            </td>
+          </div>
+          <div *ngIf="col.field != 'avatar'">{{ user[col.field] }}</div>
+          <div *ngIf="col.field == 'action'">
+            <span class="action text-center p-btn p-col-7">
+              <a
+                pButton
+                [routerLink]="['/admin/users/detail-user', user.id]"
+                (click)="onDetail(user.id)"
+                icon="pi pi-list"
+                class="info"
+              ></a>
+              <a
+                pButton
+                (click)="onEdit(user.id)"
+                [routerLink]="['/admin/users/edit-user', user.id]"
+                icon="fa fa-edit"
+                class="warning"
+              ></a>
+              <a
+                pButton
+                (click)="onDelete(user.id)"
+                icon="pi pi-trash"
+                class="danger"
+              ></a>
+            </span>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
 </p-panel>
 
 <!-- <div class="p-grid p-justify-center stretch-card">
