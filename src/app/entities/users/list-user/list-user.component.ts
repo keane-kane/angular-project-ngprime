@@ -54,7 +54,6 @@ export class ListUserComponent implements OnInit {
       if (confirm('Are you sure want to delete id = ' + id)) {
         this.sharedService.delete(+id).subscribe(
           res => {
-            console.log(res);
             this.ngOnInit();
           },
           error => this.error = error
@@ -62,8 +61,9 @@ export class ListUserComponent implements OnInit {
       }
     }
 
-    onEdit(id: number): any {
-      this.routeStateService.add('User details', '/admin/users/edit-user/' + id, id, false);
+    onEdit(id: number, profil: string): any {
+
+      this.routeStateService.add('User details', '/admin/users/edit-user/' + id, profil, false);
     }
 
     onDetail(id: number): any {

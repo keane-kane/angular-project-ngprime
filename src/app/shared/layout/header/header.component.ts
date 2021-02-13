@@ -5,7 +5,6 @@ import { SessionService } from 'src/app/core/services/session.service';
 import { User } from 'src/app/core/models/user.model';
 import { notification } from 'src/app/core/models/notification.model';
 import { UserIdleService } from 'angular-user-idle';
-import { ThemeService } from 'src/app/core/services/theme.service';
 import { UserContextService } from 'src/app/core/services/user-context.service';
 import { MenuDataService } from 'src/app/core/services/menu-data.service';
 
@@ -34,7 +33,6 @@ export class HeaderComponent implements OnInit {
     private routeStateService: RouteStateService,
     private sessionService: SessionService,
     private userIdle: UserIdleService,
-    private themeService: ThemeService,
     private userContextService: UserContextService,
     private menuDataService: MenuDataService) {
 

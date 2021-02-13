@@ -43,6 +43,10 @@ const routes: Routes = [
         path: 'edit-user/:id', component: CreateUserComponent,
         loadChildren: () => import('src/app/entities/users/user.module').then(m => m.UserModule)
     },
+    {
+        path: 'detail-user',
+        loadChildren: () => import('src/app/entities/users/user.module').then(m => m.UserModule)
+    },
 ];
 
 @NgModule({

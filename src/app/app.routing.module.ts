@@ -12,10 +12,6 @@ const appRoutes: Routes = [
         loadChildren: () => import('src/app/entities/login/login.module').then(m => m.LoginModule)
     },
     {
-        path: 'register',
-        loadChildren: () => import('src/app/entities/users/register-user/register-user.module').then(m => m.RegisterUserModule)
-    },
-    {
         path: 'admin',
         component: LayoutComponent,
         children: [{

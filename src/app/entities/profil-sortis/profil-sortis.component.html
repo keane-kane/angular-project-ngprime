@@ -1,0 +1,66 @@
+<div class="p-grid p-justify-center stretch-card">
+    <div class="p-col-11">
+      <app-header-breadcrumb></app-header-breadcrumb>
+      <div class="">
+        <div *ngIf="!profilSortis.length" class="m-auto">
+          <h1>Pas de profil Sortis disponibles</h1>
+        </div>
+        <p-panel header="Liste des profil Sortie">
+          <div class="div-btn">
+            <a  class="btn btn-success"
+              ><i class="fa fa-user-plus"></i
+            ></a>
+          </div>
+          <p-table [value]="profilSortis" class="table" *ngIf="profilSortis.length >= 1">
+            <ng-template pTemplate="header">
+              <tr>
+                <th *ngFor="let col of columns">
+                  {{ col.header }}
+                </th>
+                <th class="text-center">Actions</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-profil>
+              <tr>
+                <td *ngFor="let col of columns">
+                  <input
+                    type="text"
+                    name="libelle"
+                    class="form-control disabled"
+                    [(ngModel)]="profil.libelle"
+                    required
+                    #input="ngModel"
+                    (change)="onChange(profil.id, input)"
+                  />
+                </td>
+                <td class="action text-center p-btn p-col-7">
+                  <a
+                    pButton
+                    (click)="onDetail(profil.id)"
+                    [routerLink] = "[ '/admin/users/detail-profil',profil.id]"
+                    label="List"
+                    icon="pi pi-list"
+                    class="info"
+                  ></a>
+                  <a
+                    pButton
+                    (click)="onEdit(profil.id)"
+                    label="Edit"
+                    icon="fa fa-edit"
+                    class="warning"
+                  ></a>
+                  <a
+                    pButton
+                    (click)="onDelete(profil.id)"
+                    label="Delete"
+                    icon="pi pi-trash"
+                    class="danger"
+                  ></a>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </p-panel>
+      </div>
+    </div>
+  

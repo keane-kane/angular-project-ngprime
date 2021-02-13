@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfilSortieComponent } from './profil-sortie.component';
+import { ProfilSortisComponent } from './profil-sortis.component';
 
-describe('ProfilSortieComponent', () => {
-  let component: ProfilSortieComponent;
-  let fixture: ComponentFixture<ProfilSortieComponent>;
+describe('ProfilSortisComponent', () => {
+  let component: ProfilSortisComponent;
+  let fixture: ComponentFixture<ProfilSortisComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfilSortieComponent ]
+      declarations: [ ProfilSortisComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProfilSortieComponent);
+    fixture = TestBed.createComponent(ProfilSortisComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

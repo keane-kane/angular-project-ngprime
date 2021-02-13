@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RegisterUserComponent } from 'src/app/entities/users/register-user/register-user.component';
-
+import { ProfilSortisComponent } from './profil-sortis.component';
 
 const routes: Routes = [
-    {
-        path: '',
-        component: RegisterUserComponent
-    }
+
+    {  path: '', component: ProfilSortisComponent
+    },
+
 ];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class RegisterUserRoutingModule { }
+export class ProfilSortisRoutingModule { }

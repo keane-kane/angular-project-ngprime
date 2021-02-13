@@ -6,9 +6,9 @@ import { birthDateValidator } from 'src/app/core/validators/birthdate.validators
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-register-user',
-  templateUrl: 'register-user.component.html',
-  styleUrls: ['register-user.component.scss']
+  selector: 'app-detail-user',
+  templateUrl: 'detail-user.component.html',
+  styleUrls: ['detail-user.component.scss']
 })
 export class RegisterUserComponent implements OnInit {
 
