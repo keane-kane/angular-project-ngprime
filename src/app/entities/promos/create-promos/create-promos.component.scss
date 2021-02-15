@@ -5,10 +5,9 @@
   background-image: url("/assets/images/banner.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-    height: auto;
-    margin: auto;
+  height: auto;
+  width: 100%;
   color: aliceblue;
-  width: 45em;
 }
 h3{
   text-align: center;
@@ -16,13 +15,12 @@ h3{
 .forms-sample{
   background-color: #0c0f0f;
 
-  width: 100%;
-  padding: 5px ;
+  padding:none ;
 
 }
-select{
-  background-color: rgb(146, 150, 150);
-  border:none;
+select , input, textarea{
+  background-color: #ddfdff;
+
 }
 .obligatoire{
   color:rgb(238, 93, 93);
@@ -30,32 +28,19 @@ select{
   text-align: right;
   margin-bottom: 6px;
 }
-.label{
-  padding-right: 6px;
-  border-right: #fff solid 2px;
 
+span.label{
+  border: none;
+  margin: none;
+  background-color: #01080f;
+  border-right: #04838f 2px solid;
+  justify-content: justify !important;
+  color: #fff;
+  width: 9.3em;
+  flex-wrap: wrap;
+  padding-left: -5px !important ;
 }
-.form-group{
-  background-color: black;
-  padding: 5px;
-  margin-bottom: 3px;
-
-
-}
-.arrow{
-  float: right;
-}
-#collapse1 {
-  justify-content: flex-end;
-  flex-basis: auto;
-  margin: auto !important;
-}
-
-#collapse1 div{
-  border: #fff solid 2Px;
-  margin: 0 1px 1px 0px;
-}
-input, textarea{
+input, textarea, span{
   background-color: black;
   color: rgb(240, 230, 230);
   border: none;
@@ -63,7 +48,28 @@ input, textarea{
 i{
   color: rgb(238, 93, 93);
 }
+::ng-deep {
+  .ui-selectbutton .ui-button.ui-state-default {
+    border-radius: 2px;
+    border: solid 0 transparent;
+    background-color: transparent;
+    margin-right: 3px;
+    padding-left: 3px;
+    display: inline-block;
+    width: 32% !important;
+  }
+}
 
+::ng-deep {
+   .ui-selectbutton .ui-button.ui-state-active {
+        background-color: #04838f !important;
+    }
+}
+::ng-deep {
+       .ui-selectbutton .ui-button.ui-state-highlight {
+            background-color: green !important;
+        }
+    }
 .uploadfilecontainer {
     background-image: url("/assets/images/images.jpeg");
     background-repeat: no-repeat;
@@ -72,7 +78,7 @@ i{
     height: 200px;
     width: 97%;
     margin: 10px auto;
-    border: 2px dashed rgb(146, 150, 150);
+    border: 2px dashed rgb(253, 253, 253);
     border-radius: 10px;
     background-color:  rgb(10, 1, 1)!important;
 
@@ -82,7 +88,13 @@ i{
   color:rgb(87, 87, 190);
 
 }
+.ui-inputgroup{
+  background-color: #04838f;
+  margin: none;
+  padding-left: none;
+  justify-content: center !important;
 
+}
 
 .uploadfilecontainer:hover {
     cursor: pointer;
@@ -90,86 +102,82 @@ i{
     opacity: 0.8;
 }
 
-.files-list {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px auto;
-    background: rgb(146, 150, 150);
+// .files-list {
+//     display: flex;
+//     justify-content: space-between;
+//     margin: 10px auto;
+//     background: rgb(146, 150, 150);
 
-    border-radius: 5px;
-     width: 96%;
-    color: rgb(62, 50, 228);
-    height: 30px;
-}
+//     border-radius: 5px;
+//      width: 96%;
+//     color: rgb(62, 50, 228);
+//     height: 30px;
+// }
 
-.files-list .delete-file {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    height: 3px !important;
-}
+// .files-list .delete-file {
+//     background: transparent;
+//     border: none;
+//     cursor: pointer;
+//     height: 3px !important;
+// }
 
-.files-list .delete-file img {
-    width: 30px;
-}
-.delete-file {
-    height: 4px !important;
-    padding: none;
-    margin: none;
-}
-//scss add apprenant//
-.input-group-append,
-.input-group-prepend {
-  background: #fff;
-  color: #6c757d;
-  width: auto;
-  border: none; }
-  .input-group-append .input-group-text,
-  .input-group-prepend .input-group-text {
-    background: transparent;
-    border-color: #dee2e6; }
+// .files-list .delete-file img {
+//     width: 30px;
+// }
+// .delete-file {
+//     height: 4px !important;
+//     padding: none;
+//     margin: none;
+// }
+// //scss add apprenant//
+// .input-group-append,
+// .input-group-prepend {
+//   background: #fff;
+//   color: #6c757d;
+//   width: auto;
+//   border: none; }
+//   .input-group-append .input-group-text,
+//   .input-group-prepend .input-group-text {
+//     background: transparent;
+//     border-color: #dee2e6; }
 
-.form-control {
-  display: inline-block;
-  border: 1px solid #dee2e6;
-  font-family: "roboto", sans-serif;
-  font-size: 1rem;
-  color: #212529;
-  padding: 0 .75rem;
-  line-height: 14px;
-  font-weight: 300; }
-  .form-control.form-control-lg {
-    padding: 0.5rem 0.75rem; }
-  .form-control.form-control-sm {
-    padding: 0.25rem 0.75rem; }
+// .form-control {
+//   display: inline-block;
+//   border: 1px solid #dee2e6;
+//   font-family: "roboto", sans-serif;
+//   font-size: 1rem;
+//   color: #212529;
+//   padding: 0 .75rem;
+//   line-height: 14px;
+//   font-weight: 300; }
+//   .form-control.form-control-lg {
+//     padding: 0.5rem 0.75rem; }
+//   .form-control.form-control-sm {
+//     padding: 0.25rem 0.75rem; }
 
-textarea.form-control {
-  height: auto;
-  padding-top: 1rem;
-  padding-bottom: 1rem; }
 
-select.form-control {
-  padding: 0.4375rem 0.75rem; }
+// select.form-control {
+//   padding: 0.4375rem 0.75rem; }
 
-.form-group label {
-  font-size: 1rem;
-  line-height: 1;
-  vertical-align: top; }
+// .form-group label {
+//   font-size: 1rem;
+//   line-height: 1;
+//   vertical-align: top; }
 
-.form-group.has-danger .form-control {
-  border-color: #ff6258; }
+// .form-group.has-danger .form-control {
+//   border-color: #ff6258; }
 
-.form-group .file-upload-default {
-  visibility: hidden;
-  position: absolute; }
+// .form-group .file-upload-default {
+//   visibility: hidden;
+//   position: absolute; }
 
-.form-group .file-upload-info {
-  background: transparent; }
-  .text-md{
-    background-color:#42A948;
-    color: #fff;
-    font-size: 18px;
-  }
-.create-user{
- margin-top: 2em !important;
-}
+// .form-group .file-upload-info {
+//   background: transparent; }
+//   .text-md{
+//     background-color:#42A948;
+//     color: #fff;
+//     font-size: 18px;
+//   }
+// .create-user{
+//  margin-top: 2em !important;
+// }

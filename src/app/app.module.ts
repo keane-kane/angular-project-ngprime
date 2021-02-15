@@ -37,7 +37,6 @@ import { httpInterceptorProviders } from './core/helpers';
   ],
   exports: [],
   providers: [
-    AppCommonModule,
     MessageService,
     AuthGuard,
     httpInterceptorProviders

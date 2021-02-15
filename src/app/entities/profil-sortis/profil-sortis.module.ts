@@ -4,22 +4,22 @@ import { AppCommonModule } from 'src/app/app.common.module';
 import { HeaderBreadCrumbModule } from 'src/app/shared/layout/header-breadcrumb/header-breadcrumb.module';
 import { ProfilSortisComponent } from './profil-sortis.component';
 import { ProfilSortisRoutingModule } from './profil-sortis-rounting.module';
-import { PanelModule } from 'primeng/panel';
-import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { CreateProfilSortisComponent } from './create-profilsortis/create-profilsortis.component';
+import { DetailProfilSortisComponent } from './detail-profilsortis/detail-profilsortis.component';
 
 @NgModule({
   imports: [
-    CommonModule,
+  CommonModule,
     ProfilSortisRoutingModule,
     AppCommonModule,
     HeaderBreadCrumbModule,
-    PanelModule,
-    BreadcrumbModule
   ],
   declarations: [
     ProfilSortisComponent,
+    CreateProfilSortisComponent,
+    DetailProfilSortisComponent
   ],
 
 })
 
-export class ProfilsortieModule { }
+export class ProfilSortisModule { }

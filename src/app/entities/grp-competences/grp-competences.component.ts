@@ -11,7 +11,7 @@ export class GrpCompetencesComponent implements OnInit {
   tabs = [1, 2, 3, 5, 6, 7, 7, 0];
   grpcompetences = [];
   constructor(private sharedService: SharedService) {
-    this.sharedService.url = '/api/admin/grpecompetences';
+    this.sharedService.url = '/admin/grpecompetences';
   }
 
   ngOnInit(): void {

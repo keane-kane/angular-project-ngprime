@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SharedService } from '../../core/services/shared.service';
 
 @Component({
@@ -8,10 +8,9 @@ import { SharedService } from '../../core/services/shared.service';
 })
 export class ReferencielsComponent implements OnInit {
 
-  tabs = [1, 2, 3, 5, 6, 7, 7];
   referenciels = [];
   constructor(private sharedService: SharedService) {
-    this.sharedService.url = '/api/admin/referenciels';
+    this.sharedService.url = '/admin/referenciels';
   }
 
   ngOnInit(): void {

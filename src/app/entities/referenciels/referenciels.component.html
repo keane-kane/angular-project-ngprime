@@ -1,104 +1,46 @@
-<div class="row">
-  <div
-    id="accordion"
-    class="col-sm-4 mb-3"
-    style="max-width: 18rem"
-    *ngFor="let tab of tabs"
-  >
-    <div class="card">
-      <div class="card-header" id="headingOne">
-        <h5 class="mb-0">
-          <button
-            class="btn btn-link"
-            data-toggle="collapse"
-            data-target="#collapseOne"
-            aria-expanded="true"
-            aria-controls="collapseOne"
-          >
-            Collapsible Group Item #1
-          </button>
-        </h5>
+<div class="p-grid p-justify-justify" style="height: 100%">
+  <div class="p-xl-12 p-lg-12 p-md-12 p-sm-12">
+    <app-header-breadcrumb></app-header-breadcrumb>
+    <p-panel header="Referenciel List">
+      <div class="div-btn">
+        <a
+          [routerLink]="['/admin/users/create-referenciel']"
+          class="btn btn-success"
+          ><i class="pi pi-user-plus"></i
+        ></a>
       </div>
 
-      <div
-        id="collapseOne"
-        class="collapse show"
-        aria-labelledby="headingOne"
-        data-parent="#accordion"
-      >
-        <div class="card-body">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla neque
-          itaque aliquam similique cupiditate voluptatum eum? Sit optio eos
-          molestiae, repellat eum modi vitae magnam odit dolor assumenda veniam
-          nobis.
+      <div *ngIf="referenciels == null" class="m-auto">
+        <h1>Pas de Users disponibles</h1>
+      </div>
+      <div class="p-grid">
+        <div class="p-col-12 p-md-6 p-lg-3" *ngFor="let ref of referenciels">
+          <div class="box">
+            <p-accordion>
+              <p-accordionTab header="{{ref.libelle}}" [selected]="true">
+                <p>Competence viser: {{ref.competenceViser}}</p>
+                <p>Criteres d'evaluation: {{ref.creteresEvaluation}}</p>
+                <p>Criteres d'admission: {{ref.criteresAdmission}}</p>
+              </p-accordionTab>
+              <p-accordionTab header="Presentation">
+                <p>{{ref.presentation}}</p>
+              </p-accordionTab>
+              <p-accordionTab header="Groupe competences et promos">
+                <p>
+                  At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                  blanditiis praesentium voluptatum deleniti atque corrupti quos
+                  dolores et quas molestias excepturi sint occaecati cupiditate
+                  non provident, similique sunt in culpa qui officia deserunt
+                  mollitia animi, id est laborum et dolorum fuga. Et harum
+                  quidem rerum facilis est et expedita distinctio. Nam libero
+                  tempore, cum soluta nobis est eligendi optio cumque nihil
+                  impedit quo minus.
+                </p>
+              </p-accordionTab>
+            </p-accordion>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="card">
-      <div class="card-header" id="headingTwo">
-        <h5 class="mb-0">
-          <button
-            class="btn btn-link collapsed"
-            data-toggle="collapse"
-            data-target="#collapseTwo"
-            aria-expanded="false"
-            aria-controls="collapseTwo"
-          >
-            Collapsible Group Item #2
-          </button>
-        </h5>
-      </div>
-      <div
-        id="collapseTwo"
-        class="collapse"
-        aria-labelledby="headingTwo"
-        data-parent="#accordion"
-      >
-        <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-          terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
-          skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-          Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-          single-origin coffee nulla assumenda shoreditch et. Nihil anim
-          keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-          sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-          occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
-          you probably haven't heard of them accusamus labore sustainable VHS.
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header" id="headingThree">
-        <h5 class="mb-0">
-          <button
-            class="btn btn-link collapsed"
-            data-toggle="collapse"
-            data-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            Collapsible Group Item #3
-          </button>
-        </h5>
-      </div>
-      <div
-        id="collapseThree"
-        class="collapse"
-        aria-labelledby="headingThree"
-        data-parent="#accordion"
-      >
-        <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-          terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
-          skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-          Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-          single-origin coffee nulla assumenda shoreditch et. Nihil anim
-          keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-          sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-          occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
-          you probably haven't heard of them accusamus labore sustainable VHS.
-        </div>
-      </div>
-    </div>
+    </p-panel>
   </div>
 </div>

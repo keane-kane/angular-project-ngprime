@@ -29,12 +29,12 @@ export class MenuDataService {
             {
                 Label: 'Paramétes', Icon: 'fa-cog', RouterLink: '', Childs: [
 
-                    { Label: 'Promos', RouterLink: '/admin/promos', Childs: null, IsChildVisible: false },
-                    { Label: 'Référentiels', RouterLink: '/admin/referenciel', Childs: null, IsChildVisible: false },
-                    { Label: 'Groupe competences', RouterLink: '/admin/grp-compt', Childs: null, IsChildVisible: false },
-                    { Label: 'Compétences', RouterLink: '/admin/comptence', Childs: null, IsChildVisible: false },
-                    { Label: 'Groupe tags', RouterLink: '/admin/grp-tag', Childs: null, IsChildVisible: false },
-                    { Label: 'Profils sorties', RouterLink: '/admin/profil-sortie', Childs: null, IsChildVisible: false },
+                    { Label: 'Promos', RouterLink: '/admin/users/promos', Childs: null, IsChildVisible: false },
+                    { Label: 'Référentiels', RouterLink: '/admin/users/referenciel', Childs: null, IsChildVisible: false },
+                    { Label: 'Groupe competences', RouterLink: '/admin/users/grp-competence', Childs: null, IsChildVisible: false },
+                    { Label: 'Compétences', RouterLink: '/admin/users/comptence', Childs: null, IsChildVisible: false },
+                    { Label: 'Groupe tags', RouterLink: '/admin/users/grp-tags', Childs: null, IsChildVisible: false },
+                    { Label: 'Profils sorties', RouterLink: '/admin/users/profil-sortis', Childs: null, IsChildVisible: false },
                 ], IsChildVisible: false
             },
             {

@@ -37,12 +37,14 @@ export class ProfilComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.sharedService.url = '/admin/profils?archive=false';
+    this.sharedService.url = '/admin/profils';
     this.columns = [
       { field: 'libelle', header: 'Libelle' }];
 
     this.sharedService.getAll().subscribe((profils) => {
       this.profils = profils;
+      console.log(this.profils);
+
     });
 
   }

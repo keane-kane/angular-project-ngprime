@@ -72,8 +72,6 @@ export class CreateUserComponent implements OnInit {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.placeholder =  file.name + ' is selected';
-
-
       this.userForm.get('avatar').setValue(file);
     }
   }

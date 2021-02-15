@@ -23,7 +23,7 @@ export class ProfilSortisComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     ) {
-    this.sharedService.url = '/api/admin/profilsorties';
+    this.sharedService.url = '/admin/profilsorties';
     this.columns = [
       { field: 'libelle', header: 'Libelle' }];
 
