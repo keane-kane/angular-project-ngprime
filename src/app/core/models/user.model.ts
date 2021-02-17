@@ -10,6 +10,7 @@ export abstract class User {
      archive: boolean;
      address?: string;
      birthDate: Date;
+     phone: string;
 
     // constructor(user: User) {
     //   this.id        = user.id;

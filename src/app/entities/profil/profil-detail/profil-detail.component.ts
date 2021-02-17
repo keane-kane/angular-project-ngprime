@@ -11,6 +11,7 @@ import { RouteStateService } from 'src/app/core/services/route-state.service';
 export class ProfilDetailComponent implements OnInit {
   profils = [];
   profil: any;
+  error: any;
 
   constructor(
     private sharedService: SharedService,
@@ -34,4 +35,24 @@ export class ProfilDetailComponent implements OnInit {
   back() {
     this.routeStateService.loadPrevious();
   }
+  onDelete(id: number): void {
+    this.sharedService.url = '/users';
+    if (confirm('Are you sure want to delete id = ' + id)) {
+      this.sharedService.delete(+id).subscribe(
+        res => {
+          this.ngOnInit();
+        },
+        error => this.error = error
+      );
+    }
+  }
+
+  onEdit(id: number, profil: string): any {
+
+    this.routeStateService.add('User details', '/admin/users/edit-user/' + id, profil, false);
+  }
+
+  onDetail(id: number): any {
+    this.routeStateService.add('User details', '/admin/users/detail-user/' + id, id, false);
+   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/core/models/user.model';
 import { RouteStateService } from 'src/app/core/services/route-state.service';
@@ -17,7 +17,7 @@ export class CreateUserComponent implements OnInit {
   uploadError: string;
   imagePath: string;
   placeholder = 'Uploader an image';
-
+  id: number;
   userForm: FormGroup;
   user: User;
 
@@ -31,10 +31,10 @@ export class CreateUserComponent implements OnInit {
 
   ngOnInit(): void {
 
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
+    this.id = +this.route.snapshot.paramMap.get('id');
+    if (this.id) {
       this.pageTitle = 'Edit User';
-      this.sharedService.getById(+id).subscribe(
+      this.sharedService.getById(+this.id).subscribe(
         res => {
           this.userForm.patchValue({
             id: res.id,
@@ -48,23 +48,21 @@ export class CreateUserComponent implements OnInit {
           this.imagePath = res.avatar;
           this.user = res;
           console.log(res);
-          console.log(this.user);
 
-        }
-      );
+      });
+      this.userForm = this.fb.group({
+      });
     } else {
       this.pageTitle = 'Add User';
     }
-
     this.userForm = this.fb.group({
-      id: [''],
-      nom: ['', Validators.required],
-      prenom: ['', Validators.required],
-      email: [''],
-      username: [''],
-      avatar: [''],
-      profil: [''],
-      phone: ['']
+      nom: new FormControl('', Validators.required),
+      prenom: new FormControl('', Validators.compose([Validators.required])),
+      username: new FormControl('', [Validators.required]),
+      profil: new FormControl('', Validators.required),
+      phone: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      avatar: new FormControl(''),
     });
   }
 
@@ -77,12 +75,13 @@ export class CreateUserComponent implements OnInit {
   }
 
 
-  onSubmit(): void {
-    console.log(this.userForm);
-     
-    this.updateUrl();
-    const formData = new FormData();
+  onSubmit() {
 
+    // tslint:disable-next-line: no-unused-expression
+    this.userForm.controls['nom'];
+    const formData  = new FormData();
+    console.log(this.userForm);
+  
     formData.append('nom', this.userForm.get('nom').value);
     formData.append('prenom', this.userForm.get('prenom').value);
     formData.append('email', this.userForm.get('email').value);
@@ -90,11 +89,19 @@ export class CreateUserComponent implements OnInit {
     formData.append('username', this.userForm.get('username').value);
     formData.append('phone', this.userForm.get('phone').value);
 
-    const id = this.userForm.get('id').value;
-
-    if (id) {
-
-      this.sharedService.update(formData, +id).subscribe(
+    if (this.id ) {
+      this.updateUrl();
+      const data = {
+        nom: this.userForm.get('nom').value,
+        prenom: this.userForm.get('prenom').value,
+        email: this.userForm.get('email').value,
+        username: this.userForm.get('username').value,
+        profil: this.userForm.get('profil').value,
+        phone: this.userForm.get('phone').value,
+        avatar: this.userForm.get('avatar').value,
+      };
+      console.log(data);
+      this.sharedService.update(data, this.id).subscribe(
         res => {
           if (res.status === 'error') {
             this.uploadError = res.message;
@@ -105,7 +112,7 @@ export class CreateUserComponent implements OnInit {
         error => this.error = error
       );
     } else {
-
+      console.log(formData);
       this.sharedService.create(formData).subscribe(
         res => {
           console.log('uuu');

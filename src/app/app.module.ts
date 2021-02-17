@@ -27,19 +27,20 @@ import { httpInterceptorProviders } from './core/helpers';
     FooterComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     UserIdleModule.forRoot({ idle: 300, timeout: 1, ping: null }),
     HttpClientModule,
     AppCommonModule,
 
+
   ],
   exports: [],
   providers: [
     MessageService,
     AuthGuard,
-    httpInterceptorProviders
+    httpInterceptorProviders,
   ],
   bootstrap: [
     AppComponent

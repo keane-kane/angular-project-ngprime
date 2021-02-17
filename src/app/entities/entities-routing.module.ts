@@ -16,6 +16,7 @@ import { CreateReferencielComponent } from './referenciels/create-referenciel/cr
 import { DetailReferencielComponent } from './referenciels/detail-referenciel/detail-referenciel.component';
 import { ReferencielsComponent } from './referenciels/referenciels.component';
 import { CreateUserComponent } from './users/create-user/create-user.component';
+import { DetailUserComponent } from './users/detail-user/detail-user.component';
 import { ListUserComponent } from './users/list-user/list-user.component';
 
 const routes: Routes = [
@@ -44,6 +45,10 @@ const routes: Routes = [
     },
     {
         path: 'edit-user/:id', component: CreateUserComponent,
+        loadChildren: () => import('src/app/entities/users/user.module').then(m => m.UserModule)
+    },
+    {
+        path: 'detail-user/:id', component: DetailUserComponent,
         loadChildren: () => import('src/app/entities/users/user.module').then(m => m.UserModule)
     },
     {

@@ -24,7 +24,7 @@ export class ListUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sharedService.url = '/users';
+    this.sharedService.url = '/users?archive=false';
     this.pageSize = 10;
 
     this.columns = [
@@ -51,6 +51,7 @@ export class ListUserComponent implements OnInit {
     }
 
     onDelete(id: number): void {
+      this.sharedService.url = '/users';
       if (confirm('Are you sure want to delete id = ' + id)) {
         this.sharedService.delete(+id).subscribe(
           res => {

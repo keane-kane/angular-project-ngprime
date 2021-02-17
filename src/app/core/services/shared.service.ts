@@ -58,7 +58,7 @@ export class SharedService {
 
       // A client-side or network error occurred. Handle it accordingly.
 
-      console.error('An error occurred:', error.error.message);
+      console.error('An error occurred:', error.error);
     } else {
 
       // The backend returned an unsuccessful response code.

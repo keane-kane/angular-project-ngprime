@@ -4,27 +4,48 @@
       <div class="">
         <div class="m-auto">
         </div>
-        <p-panel header="Profils Details">
+        <p-panel header="Profils de sortis Details">
      
           <p-table [value]="profilsortis" class="table">
             <ng-template pTemplate="header">
               <tr>
-                <th> Id </th>
                   <th>Username </th>
                   <th>Prenom </th>
                   <th>Nom </th>
-                  <th>Email</th>
                   <th>Phone </th>
+                  <th>Action </th>
               </tr>
             </ng-template>
             <ng-template pTemplate="body" let-p>
               <tr>
-                <td>{{p.id}}</td>
                 <td>{{p.username}}</td>
                 <td>{{p.prenom}}</td>
                 <td>{{p.nom}}</td>
-                <td>{{p.email}}</td>
                 <td>{{p.phone}}</td>
+                <td>
+                  <span class="action text-center p-btn p-col-7">
+                    <a
+                      pButton
+                      [routerLink]="['/admin/users/detail-user', p.id]"
+                      (click)="onDetail(p.id)"
+                      icon="pi pi-list"
+                      class="info"
+                    ></a>
+                    <a
+                      pButton
+                      (click)="onEdit(p.id, p.profil)"
+                      [routerLink]="['/admin/users/edit-user', p.id]"
+                      icon="fa fa-edit"
+                      class="warning"
+                    ></a>
+                    <a
+                      pButton
+                      (click)="onDelete(p.id)"
+                      icon="pi pi-trash"
+                      class="danger"
+                    ></a>
+                  </span>
+                </td>
               </tr>
               
             </ng-template>

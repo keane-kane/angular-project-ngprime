@@ -79,7 +79,7 @@
                 >
                 <input
                   type="text"                  
-                  formControlName="referenceAge"
+                  formControlName="referenceAgate"
                   class="p-col-8"
                   placeholder="Référence Agate"
                   required
@@ -130,11 +130,11 @@
               <div class="ui-inputgroup">
                 <p-accordion class="p-col-12">
                   <p-accordionTab header="Référenciels" [selected]="false">
-                    
+                    <p *ngFor="let r of ref; let i= index"></p>
                     <p-selectButton 
-                       [options]="paymentOptions" 
+                       [options]="ref" 
                        [(ngModel)]="value2" multiple="multiple" 
-                       optionLabel="name" optionValue="value"
+                       optionLabel="libelle" optionValue="r.id"
                        (onChange)="basedOnModeofTrack($event)"
                        [ngModelOptions]="{standalone: true}"
                        >

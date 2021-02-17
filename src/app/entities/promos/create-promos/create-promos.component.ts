@@ -21,7 +21,7 @@ export class CreatePromosComponent implements OnInit {
 
  stateOptions: any[];
 
-    paymentOptions: any[];
+    paymentOptions = [];
 
     value1 = 'off';
 
@@ -34,7 +34,7 @@ export class CreatePromosComponent implements OnInit {
     private route: ActivatedRoute,
     private routeStateService: RouteStateService,
   ) {
-    this.sharedService.url = '/admin/users/promo';
+    this.sharedService.url = '/admin/promo';
     this.stateOptions = [{label: 'Off', value: 'off'}, {label: 'On', value: 'on'}];
 
    }
@@ -56,7 +56,7 @@ export class CreatePromosComponent implements OnInit {
             datDebut: res.datDebut,
             dateCloture: res.dateCloture,
             referenciels: res.referenciels,
-            referenceAge: res.referenceAge,
+            referenceAgate: res.referenceAgate,
             fabrique: res.fabrique
 
           });
@@ -68,25 +68,15 @@ export class CreatePromosComponent implements OnInit {
         }
       );
     } else {
-      this.ref =  this.getRef();
       this.sharedService.url = '/admin/referenciels';
       this.sharedService.getAll().subscribe(
         referenciels => {
-          console.log(referenciels);
-          referenciels.forEach(ref => {
-             this.ref.push(ref);
-          });
+          this.ref = referenciels;
           console.log(this.ref);
-
-          this.paymentOptions = [
-            {name: this.ref['libelle'], value: this.ref['id']},
-            {name: 'Option 2', value: 2},
-            {name: 'Option 3', value: 3},
-            {name: 'Option 3', value: 3},
-            {name: 'Option 3', value: 3},
-            {name: 'Option 3', value: 3}
-          ];
-          return referenciels;
+          referenciels.forEach(elt => {
+            this.paymentOptions.push({name: elt.libelle, value: elt.id});
+            return this.paymentOptions;
+          });
         });
       this.pageTitle = 'Créer une promotion';
     }
@@ -101,7 +91,7 @@ export class CreatePromosComponent implements OnInit {
       dateDebut: [''],
       dateCloture: [''],
       referenciels: [''],
-      referenceAge: [''],
+      referenceAgate: [''],
       fabrique: ['']
     });
   }
@@ -109,30 +99,42 @@ export class CreatePromosComponent implements OnInit {
   onSelectedFile(event): void {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      this.promoForm.get('avatar').setValue(file);
+      // this.promoForm.get('avatar').setValue(file);
     }
   }
 
   basedOnModeofTrack(obj: any) {
     console.log(obj.value);
     if (obj.value == null) {
-      console.log(this.ref);
       this.promoForm.get('referenciels').setValue(obj.value);
+       console.log(this.promoForm);
 
     }
   }
-
+  get f() { return this.promoForm.controls; }
   onSubmit(): void {
+    this.sharedService.url = '/admin/promo';
+    if (this.promoForm.invalid) {
+      console.log('formulaire invalid');
+      return;
+    }
     console.log(this.promoForm);
     const formData = new FormData();
-
+    const form = JSON.stringify(this.promoForm.value, null, 4);
+    console.log(form);
+    
     formData.append('lieu', this.promoForm.get('lieu').value);
     formData.append('langue', this.promoForm.get('langue').value);
-    formData.append('titre', this.promoForm.get('email').value);
-    formData.append('description', this.promoForm.get('profil').value);
+    formData.append('titre', this.promoForm.get('titre').value);
+    formData.append('fabrique', this.promoForm.get('fabrique').value);
+    formData.append('description', this.promoForm.get('description').value);
     formData.append('dateDebut', this.promoForm.get('dateDebut').value);
     formData.append('dateCloture', this.promoForm.get('dateCloture').value);
-
+    formData.append('referenceAgate', this.promoForm.get('referenceAgate').value);
+    
+    const formD = JSON.stringify(formData, null, 4);
+    console.log(formD);
+    
     const id = this.promoForm.get('id').value;
 
     if (id) {
@@ -140,21 +142,20 @@ export class CreatePromosComponent implements OnInit {
       this.sharedService.update(formData, +id).subscribe(
         res => {
           if (res.status === 'error') {
-            this.uploadError = res.message;
+            console.log(res.staus);
           } else {
             this.router.navigate(['/admin/users/promos']);
           }
         },
         error => this.error = error
-      );
-    } else {
+        );
+      } else {
 
-      this.sharedService.create(formData).subscribe(
+      this.sharedService.create(formD).subscribe(
         res => {
-          console.log('uuu');
-
           if (res.status === 'error') {
-            this.uploadError = res.message;
+            console.log(res.staus);
+            console.log('uuu');
           } else {
             this.router.navigate(['/admin/users/promos']);
           }
@@ -168,13 +169,6 @@ export class CreatePromosComponent implements OnInit {
     }
   }
 
-  getRef(): any {
-    this.sharedService.url = '/admin/referenciels';
-    this.sharedService.getAll().subscribe(
-      referenciels => {
-        return referenciels;
-      });
-  }
 
   // uploadFile(event): void {
   //   // tslint:disable-next-line:prefer-for-of
