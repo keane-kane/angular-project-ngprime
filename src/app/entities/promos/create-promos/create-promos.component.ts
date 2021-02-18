@@ -120,8 +120,6 @@ export class CreatePromosComponent implements OnInit {
     }
     console.log(this.promoForm);
     const formData = new FormData();
-    const form = JSON.stringify(this.promoForm.value, null, 4);
-    console.log(form);
     
     formData.append('lieu', this.promoForm.get('lieu').value);
     formData.append('langue', this.promoForm.get('langue').value);
@@ -131,10 +129,7 @@ export class CreatePromosComponent implements OnInit {
     formData.append('dateDebut', this.promoForm.get('dateDebut').value);
     formData.append('dateCloture', this.promoForm.get('dateCloture').value);
     formData.append('referenceAgate', this.promoForm.get('referenceAgate').value);
-    
-    const formD = JSON.stringify(formData, null, 4);
-    console.log(formD);
-    
+  
     const id = this.promoForm.get('id').value;
 
     if (id) {
@@ -150,8 +145,9 @@ export class CreatePromosComponent implements OnInit {
         error => this.error = error
         );
       } else {
-
-      this.sharedService.create(formD).subscribe(
+       console.log(formData);
+       
+      this.sharedService.create(formData).subscribe(
         res => {
           if (res.status === 'error') {
             console.log(res.staus);

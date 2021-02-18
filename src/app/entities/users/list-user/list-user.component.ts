@@ -64,7 +64,7 @@ export class ListUserComponent implements OnInit {
 
     onEdit(id: number, profil: string): any {
 
-      this.routeStateService.add('User details', '/admin/users/edit-user/' + id, profil, false);
+      this.routeStateService.add('User edit', '/admin/users/edit-user/' + id, profil, false);
     }
 
     onDetail(id: number): any {

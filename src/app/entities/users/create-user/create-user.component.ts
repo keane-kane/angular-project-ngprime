@@ -20,6 +20,7 @@ export class CreateUserComponent implements OnInit {
   id: number;
   userForm: FormGroup;
   user: User;
+  fileHolder: File | null;
 
   constructor(
     private fb: FormBuilder,
@@ -50,8 +51,7 @@ export class CreateUserComponent implements OnInit {
           console.log(res);
 
       });
-      this.userForm = this.fb.group({
-      });
+
     } else {
       this.pageTitle = 'Add User';
     }
@@ -62,50 +62,45 @@ export class CreateUserComponent implements OnInit {
       profil: new FormControl('', Validators.required),
       phone: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
-      avatar: new FormControl(''),
+      avatar: new FormControl(null),
+      id: new FormControl(''),
     });
   }
 
   onSelectedFile(event): void {
     if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.placeholder =  file.name + ' is selected';
-      this.userForm.get('avatar').setValue(file);
+      this.fileHolder = event.target.files[0];
+      this.placeholder =  this.fileHolder.name + ' is selected';
+      this.userForm.controls['avatar'].setValue(this.fileHolder);
     }
   }
 
 
   onSubmit() {
 
-    // tslint:disable-next-line: no-unused-expression
-    this.userForm.controls['nom'];
     const formData  = new FormData();
     console.log(this.userForm);
-  
+
     formData.append('nom', this.userForm.get('nom').value);
     formData.append('prenom', this.userForm.get('prenom').value);
     formData.append('email', this.userForm.get('email').value);
-    formData.append('profil', this.userForm.get('profil').value);
     formData.append('username', this.userForm.get('username').value);
     formData.append('phone', this.userForm.get('phone').value);
+    formData.append('avatar', this.userForm.get('avatar').value.name);
+    // formData.append('avatar', new Blob([this.userForm.get('avatar').value], { type: 'application/octet-stream' }), 'file.bin');
 
     if (this.id ) {
       this.updateUrl();
-      const data = {
-        nom: this.userForm.get('nom').value,
-        prenom: this.userForm.get('prenom').value,
-        email: this.userForm.get('email').value,
-        username: this.userForm.get('username').value,
-        profil: this.userForm.get('profil').value,
-        phone: this.userForm.get('phone').value,
-        avatar: this.userForm.get('avatar').value,
-      };
-      console.log(data);
-      this.sharedService.update(data, this.id).subscribe(
+      formData.append('id', this.userForm.get('id').value);
+      formData.append('profil_id', this.userForm.get('profil').value);
+  
+      this.sharedService.update(formData, this.id).subscribe(
         res => {
           if (res.status === 'error') {
             this.uploadError = res.message;
           } else {
+            console.log(res);
+
             this.router.navigate(['/admin/users/user-list']);
           }
         },
@@ -113,6 +108,8 @@ export class CreateUserComponent implements OnInit {
       );
     } else {
       console.log(formData);
+
+      formData.append('profil', this.userForm.controls['profil'].value);
       this.sharedService.create(formData).subscribe(
         res => {
           console.log('uuu');
@@ -135,16 +132,16 @@ export class CreateUserComponent implements OnInit {
   private updateUrl() {
     const routeState = this.routeStateService.getCurrent();
 
-    if (routeState.data  == '/api/admin/profils/1') {
+    if (routeState.data  === '/api/admin/profils/1') {
         this.sharedService.url = '/admin/users';
 
-    } else if (routeState.data  == '/api/admin/profils/3') {
+    } else if (routeState.data  === '/api/admin/profils/3') {
        this.sharedService.url = '/admin/users/formateurs';
 
-    } else if (routeState.data  == '/api/admin/profils/4') {
+    } else if (routeState.data  === '/api/admin/profils/4') {
       this.sharedService.url = '/admin/users/cms';
 
-    } else if (routeState.data  == '/api/admin/profils/2') {
+    } else if (routeState.data  === '/api/admin/profils/2') {
       this.sharedService.url = '/admin/users/apprenants';
     }
   }

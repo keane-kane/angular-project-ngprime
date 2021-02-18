@@ -1,55 +1,154 @@
-.input-group-append,
-.input-group-prepend {
-  background: #fff;
-  color: #6c757d;
-  width: auto;
-  border: none; }
-  .input-group-append .input-group-text,
-  .input-group-prepend .input-group-text {
-    background: transparent;
-    border-color: #dee2e6; }
 
-.form-control {
-  display: inline-block;
-  border: 1px solid #dee2e6;
-  font-family: "roboto", sans-serif;
-  font-size: 1rem;
-  color: #212529;
-  padding: 0 .75rem;
-  line-height: 14px;
-  font-weight: 300; }
-  .form-control.form-control-lg {
-    padding: 0.5rem 0.75rem; }
-  .form-control.form-control-sm {
-    padding: 0.25rem 0.75rem; }
 
-textarea.form-control {
-  height: auto;
-  padding-top: 1rem;
-  padding-bottom: 1rem; }
-
-select.form-control {
-  padding: 0.4375rem 0.75rem; }
-
-.form-group label {
-  font-size: 1rem;
-  line-height: 1;
-  vertical-align: top; }
-
-.form-group.has-danger .form-control {
-  border-color: #ff6258; }
-
-.form-group .file-upload-default {
-  visibility: hidden;
-  position: absolute; }
-
-.form-group .file-upload-info {
-  background: transparent; }
-  .text-md{
-    background-color:#42A948;
-    color: #fff;
-    font-size: 18px;
-  }
-.create-user{
- margin-top: 2em !important;
+h3{
+  text-align: center;
 }
+.forms-sample{
+  padding:none ;
+  width: 100%;
+  
+}
+form {
+  background-color: #0c0f0f;
+  width: 100%;
+  
+}
+form div{
+  display: inline-block;
+  justify-content: center !important;
+}
+
+.obligatoire{
+  color:rgb(238, 93, 93);
+  font-weight: bold;
+  text-align: right;
+  margin-bottom: 6px;
+}
+
+span.label{
+  border: none;
+  margin: none;
+  background-color: #01080f;
+  justify-content: justify !important;
+  color: #fff;
+  padding-left: -5px !important ;
+  margin-bottom:2em !important ;
+}
+
+i{
+  color: rgb(238, 93, 93);
+}
+
+
+
+button:focus {
+  outline: none;
+}
+button:hover , .spna-col {
+  outline: none;
+    background-color: #04838f !important;
+}
+
+button.ghost {
+  background-color: transparent;
+  border-color: #FFFFFF;
+}
+
+button {
+    border-radius: 1px;
+    border: 1px solid #d9eceb;
+    background-color: #427976;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    margin-top: 20px;
+
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+
+.ng-valid[required], .ng-valid.required {
+  border-left: 5px solid #42A948;
+}
+
+
+
+
+
+
+input {
+    border: none;
+    font-size: 18px;
+    color: #01080f;
+   
+}
+select {
+    border: none;
+    font-size: 18px;
+   
+}
+input:focus{
+  outline: none;
+}
+input::placeholder, textarea::placeholder{
+  outline: none;
+  color: #000607;
+  font-size: 15px;
+  font-style: oblique;
+}
+
+.spna-col{
+  position: relative;
+  background: #427976;
+  text-align: center;
+  float: right;
+  top: -2.8em !important;
+}
+.spna-col a{
+  font-size: 18px;
+  color: #fff !important;
+  text-align: center;
+}
+label{
+  color: #000;
+  font-size: 18px;
+  font-weight: 450;
+}
+select:focus,
+textarea:focus, 
+textarea.form-control:focus, 
+input.form-control:focus, 
+input[type=text]:focus, 
+input[type=password]:focus, 
+input[type=email]:focus, 
+input[type=tel]:focus {
+  box-shadow: inset 0px -1px 2px #427976 !important;
+  background-color: rgb(217, 251, 255);
+  .ui-inputgroup{
+    box-shadow: inset 0px -1px 0 #427976 !important;
+  }
+}
+
+.fileload {
+ display: block;
+ margin-bottom: -2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

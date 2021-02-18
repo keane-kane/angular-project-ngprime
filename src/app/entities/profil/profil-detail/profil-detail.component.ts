@@ -25,8 +25,8 @@ export class ProfilDetailComponent implements OnInit {
     this.sharedService.url = '/admin/profils';
     const id  = +this.route.snapshot.params.id;
 
-      this.sharedService.getById(id).subscribe(p => {
-        this.profils = p['users'];
+      this.sharedService.getById(id).subscribe(data => {
+        this.profils = data['users'];
         console.log(this.profils);
       });
 
@@ -56,3 +56,4 @@ export class ProfilDetailComponent implements OnInit {
     this.routeStateService.add('User details', '/admin/users/detail-user/' + id, id, false);
    }
 }
+

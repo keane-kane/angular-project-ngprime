@@ -4,6 +4,7 @@ import { throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Key } from 'protractor';
+import { HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -12,6 +13,8 @@ import { Key } from 'protractor';
 export class SharedService {
 
    url = '';
+   headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+   options = { headers: this.headers };
   constructor(private http: HttpClient) { }
 
 
@@ -23,7 +26,7 @@ export class SharedService {
           const datas = [];
             for (const key in data) {
               if (data.hasOwnProperty(key)) {
-                datas.push({...data[key], id: +key + 1});
+                datas.push({...data[key]});
               }
 
             }
@@ -42,7 +45,8 @@ export class SharedService {
   }
 
   update(data: any, id: number): any {
-    return this.http.put(`${environment.apiUrl}${this.url}/${id}`, data).pipe(
+    return this.http.put(`${environment.apiUrl}${this.url}/${id}`, data, { headers: {'Content-Type': 'multipart/form-data'}}
+    ).pipe(
       catchError(this.handleError));
   }
 

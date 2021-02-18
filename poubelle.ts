@@ -239,3 +239,25 @@ new JsPDF(
 
   format // A2, A4 etc  
 ); 
+
+const data = [{
+  nom: this.userForm.get('nom').value,
+  prenom: this.userForm.get('prenom').value,
+  email: this.userForm.get('email').value,
+  username: this.userForm.get('username').value,
+  profil: this.userForm.get('profil').value,
+  phone: this.userForm.get('phone').value,
+  avatar: this.userForm.get('avatar').value,
+}];
+const formdata = new FormData();
+for(let i = 0; i < data.length; i += 1) {
+     Object.keys(data[i]).forEach(key => {
+          if(key == 'avatar')
+            {
+                formdata.append(key, JSON.stringify(data[i][key]));
+            } else {
+             formdata.append(key, data[i][key]);
+          }
+
+       });
+ }

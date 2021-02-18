@@ -6,7 +6,13 @@
     <div class="p-grid p-justify-center stretch-card ">
       <p-panel header="User Details">
   
-        <p-card header="Student Card" subheader="" id="contentToConvert" [style]="{width: '30em', height: '20em', marginTop: '5em !important'}" styleClass="p-card-shadow">
+        <p-card header="Student Card" 
+          subheader="" 
+          id="contentToConvert" 
+          [style]="{width: '40em', height: '23em'}"
+           styleClass="p-cardshadow"
+           *ngIf="userform != null"
+           >
           <ng-template pTemplate="header">
             <!-- <img
             src="data:image/png;base64,{{ userform.avatar }}"
@@ -14,6 +20,7 @@
              style="width: 100px;height: 40px "
            /> -->
           </ng-template >
+         
           <div class="body">
             <img
             src="/assets/images/loginPage.png"
@@ -33,7 +40,8 @@
               <span>Phone : </span>{{userform.phone}}
             </div>
           </div>
-          <div class="qrcode ">
+          
+          <div class="qrcode">
             <ngx-qrcode
               [elementType]="elementType"
               [errorCorrectionLevel]="correctionLevel"
@@ -41,9 +49,6 @@
               cssClass="bshadow">
             </ngx-qrcode>
           </div>
-          <ng-template pTemplate="footer">
-             
-          </ng-template>
         </p-card>
       
         <p-footer>

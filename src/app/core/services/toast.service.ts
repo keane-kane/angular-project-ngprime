@@ -6,7 +6,7 @@ import { MessageService } from 'primeng/api';
 })
 /**
  * Toast service class
- * This class provides methods to add single, multiple alerts as a toast 
+ * This class provides methods to add single, multiple alerts as a toast
  */
 export class ToastService {
     constructor(private messageService: MessageService) { }
@@ -23,7 +23,7 @@ export class ToastService {
 
     /**
      * add multiple toast messages
-     * @param messages 
+     * @param messages
      * array of message type {severity:'success', summary:'Service Message', detail:'Via MessageService'}
      */
     addMultiple(messages: any) {

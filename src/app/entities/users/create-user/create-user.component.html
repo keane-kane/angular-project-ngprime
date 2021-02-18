@@ -1,3 +1,4 @@
+<app-header-breadcrumb></app-header-breadcrumb>
 <div class="p-grid p-justify-center p-align-center" style="height: 100%">
   <div class="p-xl-7 p-lg-7 p-md-8 p-sm-11">
     <p-panel header="{{ pageTitle }}">
@@ -97,12 +98,13 @@
                   formControlName="avatar"
                   #fileInput
                   hidden
+                  accept="image/*" 
                   (change)="onSelectedFile($event)"
                   class="file-upload-default"
                 />
                 <div class="ui-inputgroup">
                   <input
-                    type="text"
+                    type=""
                     disabled
                     class="p-col-9"
                     placeholder="Uploader image"
@@ -114,7 +116,7 @@
                 </div>
               </div>
             </div>
-
+            <input type="hidden" formControlName="id">
             <div>
               <button pButton type="submit"
                class="btn text-md ">
